@@ -42,7 +42,7 @@ const Table = ({ dados, fnDelete = null, fnUpdate = null }) => {
           return (
             <tr className="table-data__head-row" key={tp.idEvento}>
               <td className="table-data__data table-data__data--big">
-                {tp.nomeEvento}
+                {tp.nome}
               </td>
               <td
                 className="table-data__data table-data__data--big table-data__data--handover"
@@ -57,7 +57,8 @@ const Table = ({ dados, fnDelete = null, fnUpdate = null }) => {
                 />
               </td>
               <td className="table-data__data table-data__data--big">
-                {tp.tiposEvento.titulo}
+              
+                {tp.tipoEvento?.titulo}
               </td>
               <td className="table-data__data table-data__data--big">
                 {dateFormateDbToView(tp.dataEvento)}
@@ -69,27 +70,20 @@ const Table = ({ dados, fnDelete = null, fnUpdate = null }) => {
                   idevento={tp.idEvento}
                   src={editPen}
                   alt=""
-                  onClick={(e) =>
-                    // dá pra passar o obhjeto tp direto?
-                    fnUpdate({//showUpdateForma(??)
-                      idEvento: tp.idEvento,
-                      nomeEvento: tp.nomeEvento,
-                      dataEvento: tp.dataEvento,
-                      descricao: tp.descricao,
-                      idInstituicao: tp.idInstituicao, //por enquanto chumbado
-                      idTipoEvento: tp.idTipoEvento
-                    })
+                  onClick={() =>{
+                    fnUpdate(tp.idEvento);
+
                   }
+                }
                 />
               </td>
 
               <td className="table-data__data table-data__data--little">
                 <img
                   className="table-data__icon"
-                  idevento={tp.idEvento}
                   src={trashDelete}
                   alt=""
-                  onClick={(e) => fnDelete(e.target.getAttribute("idevento"))}
+                  onClick={() => fnDelete(tp.idEvento)}
                 />
               </td>
             </tr>

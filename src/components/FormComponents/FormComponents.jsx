@@ -52,8 +52,11 @@ export const Select = ({
     options = [],
     manipulationFunction,
     additionalClass = "",
-    defaultValue
+    value,
+    optionValueKey = "id",   // chave do valor (padrão "id")
+    optionLabelKey = "titulo" // chave do texto (padrão "titulo")
 }) => {
+     const safeOptions = Array.isArray(options) ? options : []; // <- garante que seja array
     return (
         <select 
             name={name} 
@@ -61,15 +64,25 @@ export const Select = ({
             required={required}
             className={`input-component ${additionalClass}`}
             onChange={manipulationFunction}
-            value={defaultValue}
-
+            value={value}
         >
-            <option value="">Selecione</option>
-            {options.map((o) =>{
+            
+     <option value="" disabled hidden>
+        Selecione...
+      </option>
+            {safeOptions.map((o) =>{
+                
                 return (
-                    <option key={Math.random()} value={o.value}>{o.text}</option>
+                    <option key={o[optionValueKey]} value={o[optionValueKey]}>
+                    {o[optionLabelKey]}
+                    </option>
                 );
-            })}
+                
+            }
+            
+            )}
+            
         </select>
     );
+    
 }

@@ -7,10 +7,10 @@ import api, { loginResource } from "../../Services/Service";
 import { useNavigate } from "react-router-dom";
 
 import "./LoginPage.css";
-import { UserContext, userDecodeToken } from "../../context/AuthContext";
+import { UserContext } from "../../context/AuthContext";
 
 const LoginPage = () => {
-  const [user, setUser] = useState({ email: "edu@admin.com", senha: "123456" });
+  const [user, setUser] = useState({ email: "gui@gmail.com", senha: "123456" });
   //importa os dados globais do usuário
   const { userData, setUserData } = useContext(UserContext);
   const navigate = useNavigate();
@@ -35,10 +35,18 @@ const LoginPage = () => {
           senha: user.senha,
         });
 
-        const userFullToken = userDecodeToken(promise.data.token); // decodifica o token vindo da api
+             // pega os dados diretamente do response
+      const { token, userId, nome, role } = promise.data;
 
-        setUserData(userFullToken); // guarda o token globalmente
-        localStorage.setItem("token", JSON.stringify(userFullToken));
+      const userFullData = {
+        token,
+        userId,
+        nome,
+        role,
+      };
+
+        setUserData(userFullData); // guarda o token globalmente
+        localStorage.setItem("token", JSON.stringify(userFullData));
         navigate("/"); //envia o usuário para a home
       } catch (error) {
         // erro da api: bad request (401) ou erro de conexão

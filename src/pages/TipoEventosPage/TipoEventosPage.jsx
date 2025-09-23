@@ -23,14 +23,20 @@ const TipoEventosPage = () => {
 
   // Função que após a página/DOM estar pronta
   useEffect(() => {
-    // define a chamada em nossa api
-    async function loadEventsType() {
+   
+  
+    // chama a função/api no carregamento da página/componente
+    loadEventsType();
+  }, []);
+
+ // define a chamada em nossa api
+  async function loadEventsType() {
       setShowSpinner(true);
       
       try {
-        const retorno = await api.get(eventsTypeResource);
+        const retorno = await api.get("TipoEvento/Listar");
         setTipoEventos(retorno.data);
-        console.log(retorno.data);
+        
       } catch (error) {
         console.log("Erro na api");
         console.log(error);
@@ -38,10 +44,6 @@ const TipoEventosPage = () => {
 
       setShowSpinner(false);
     }
-    // chama a função/api no carregamento da página/componente
-    loadEventsType();
-  }, []);
-
   // ***************************** CADASTRAR *****************************
   async function handleSubmit(e) {
     e.preventDefault(); //evita o submit do formulário
@@ -76,7 +78,7 @@ const TipoEventosPage = () => {
       });
 
       // Atualiza a tela
-      const buscaEventos = await api.get(eventsTypeResource);
+      const buscaEventos = await api.get("TipoEvento/Listar");
       setTipoEventos(buscaEventos.data); //aqui retorna um array, então de boa!
     } catch (error) {
       setNotifyUser({
@@ -101,7 +103,7 @@ const TipoEventosPage = () => {
     try {
       const retorno = await api.get(`${eventsTypeResource}/${idElement}`);
       setTitulo(retorno.data.titulo);
-      console.log(retorno.data);
+
     } catch (error) {}
     setShowSpinner(false);
   }
@@ -135,7 +137,7 @@ const TipoEventosPage = () => {
         });
 
         // atualizar os dados na tela
-        const retorno = await api.get(eventsTypeResource);
+        const retorno = await api.get("TipoEvento/Listar");
         setTipoEventos(retorno.data);
 
         // volta para a tela de cadastro
@@ -176,13 +178,13 @@ const TipoEventosPage = () => {
           });
 
           // DESAFIO: fazer uma função para retirar o registro apagado do array tipoEventos
-          const buscaEventos = await api.get(eventsTypeResource);
-          setTipoEventos(buscaEventos.data); //aqui retorna um array, então de boa!
+      const buscaEventos = await api.get("TipoEvento/Listar");
+      setTipoEventos(buscaEventos.data);
         }
       } catch (error) {
         alert("Problemas ao apagar o elemento!");
       }
-      setShowSpinner(false);
+        setShowSpinner(false);
     }
   }
   return (

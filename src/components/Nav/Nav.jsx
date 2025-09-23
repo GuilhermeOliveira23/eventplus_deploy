@@ -4,10 +4,11 @@ import "./Nav.css";
 import logoMobile from "../../assets/images/logo-white.svg";
 import logoDesktop from "../../assets/images/logo-pink.svg";
 import { Link } from "react-router-dom";
-import { UserContext } from "../../context/AuthContext";
+import { UserContext, userDecodeToken } from "../../context/AuthContext";
 
 const Nav = ({ exibeNavbar, setExibeNavbar }) => {
   const { userData } = useContext(UserContext);
+ 
 
   return (
     <nav className={`navbar ${exibeNavbar ? "exibeNavbar" : ""}`}>
@@ -33,7 +34,7 @@ const Nav = ({ exibeNavbar, setExibeNavbar }) => {
           Home
         </Link>
 
-        {userData.nome && userData.role === "Administrador" ? (
+        {userData.role === "Administrador" ? (
           <>
             <Link className="navbar__item" to="/tipo-eventos">
               Tipos Evento
@@ -42,7 +43,7 @@ const Nav = ({ exibeNavbar, setExibeNavbar }) => {
               Eventos
             </Link>
           </>
-        ) : userData.nome && userData.role === "Comum" ? (
+        ) :  userData.role === "Comum" ? (
           <Link className="navbar__item" to="/eventos-aluno">
             Eventos
           </Link>

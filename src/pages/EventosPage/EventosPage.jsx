@@ -22,15 +22,18 @@ import "./EventosPage.css";
 
 export default function EventosPaage(props) {
   //dados do form
-  const [nomeEvento, setNomeEvento] = useState(""); //Nome do evento
-  const [descricaoEvento, setDescricaoEvento] = useState(""); //Descrição do Evento
-  const [tipoEvento, setTipoEvento] = useState(""); //código do tipo do Evento escolhido
-  const [dataEvento, setDFataEvento] = useState(""); //Tipo do Evento escolhido ???
-  const [eventos, setEventos] = useState([]);
-  const [tiposEvento, setTiposEvento] = useState([]);
-  const [instituicao, setInstituicao] = useState();
-  const [frmEditData, setFrmEditData] = useState({}); //dados do formulário de edição de dados
-
+  const [tipoEvento, setTipoEvento] = useState([]); //código do tipo do Evento escolhido
+  const [eventos, setEventos] = useState([]);;
+  
+  const [instituicao, setInstituicao] = useState([]);
+ const [frmEditData, setFrmEditData] = useState({
+        nome: "",
+        dataEvento: "",
+        descricao: "",
+        idInstituicao: "",
+        idTipoEvento: "" 
+  // ... qualquer outro input
+});
   //states condicionais
   const [showSpinner, setShowSpinner] = useState(false);
   //controla qual é a ação do submit, cadastrar ou atualizar
@@ -43,24 +46,18 @@ export default function EventosPaage(props) {
   useEffect(() => {
     async function loadEventsType() {
       setShowSpinner(true);
-
+      
       try {
         const promise = await api.get(eventsResource);
-        const promiseTipoEventos = await api.get(eventsTypeResource);
-        const promiseInstituicao = await api.get(institutionResource);
+        const promiseTipoEventos = await api.get("TipoEvento/Listar")
+        const promiseInstituicao = await api.get("Instituicao/Listar")
+        
+        setTipoEvento(promiseTipoEventos.data)
+    
+        setInstituicao(promiseInstituicao.data)
         //só tem uma instituição neste projeto mas já fica preparado pra adicionar mais!
         setEventos(promise.data);
 
-        const tpEventosModificado = [];
-        //retorno da api (array tipo de eventos)
-        promiseTipoEventos.data.forEach((event) => {
-          tpEventosModificado.push({ value: event.idTipoEvento, text: event.titulo });
-        });
-
-        setTiposEvento(tpEventosModificado);
-        setInstituicao(promiseInstituicao.data[0].idInstituicao);
-        console.log(promiseTipoEventos.data);
-        // console.log(promiseInstituicao.data[0].idInstituicao);
       } catch (error) {}
       setShowSpinner(false);
     }
@@ -71,35 +68,41 @@ export default function EventosPaage(props) {
   // UPDATE
   function editActionAbort() {
     setFrmEdit(false);
-    setFrmEditData({});
+    setFrmEditData({
+        nome: "",
+        dataEvento: "",
+        descricao: "",
+        idInstituicao: "",
+        idTipoEvento: "" 
+    });
   }
   // Exibe os dados na tela com o formulário de edição
   async function showUpdateForm(evento) {
-    setFrmEditData(evento);
+      setFrmEditData(prev => ({
+    ...prev,
+    IdEvento: evento // guarda o IdEvento no state
+  }));
     setFrmEdit(true);
   }
 
-  // UPDATE ON API MONSTER BACKEND
+  // UPDATE ON API  BACKEND
   async function handleUpdate(e) {
     e.preventDefault();
     setShowSpinner(true);
-
+    
+    
     try {
+
+
       const promise = await api.put(
-        `${eventsResource}/${frmEditData.idEvento}`,
-        {
-          nomeEvento: frmEditData.nomeEvento,
-          dataEvento: frmEditData.dataEvento,
-          descricao: frmEditData.descricao,
-          idInstituicao: frmEditData.idInstituicao,
-          idTipoEvento: frmEditData.idTipoEvento,
-        }
+        `${"/Evento"}/${frmEditData.IdEvento}`, frmEditData
       );
 
       if (promise.status === 204) {
+        // esse notify aqui é um componente de notificação bonito pra n ficar aparecendo aqueles alerts horrosos
         setNotifyUser({
           titleNote: "Sucesso",
-          textNote: `Atualizado com sucesso! (${frmEditData.nomeEvento})`,
+          textNote: `Atualizado com sucesso! (${frmEditData.nome})`,
           imgIcon: "success",
           imgAlt:
             "Imagem de ilustração de sucesso. Moça segurando um balão com símbolo de confirmação ok.",
@@ -107,7 +110,7 @@ export default function EventosPaage(props) {
         });
 
         const buscaEventos = await api.get(eventsResource);
-        setEventos(buscaEventos.data); //aqui retorna um array, então de boa!
+        setEventos(buscaEventos.data); //aqui retorna um array impossivel dar erro
       } else {
         setNotifyUser({
           titleNote: "Erro",
@@ -134,7 +137,13 @@ export default function EventosPaage(props) {
     }
 
     setShowSpinner(false);
-    setFrmEditData({});
+    setFrmEditData({
+        IdEvento: "",
+        nome: "",
+        dataEvento: "",
+        descricao: "",
+        idInstituicao: "",
+        idTipoEvento: ""});
     setFrmEdit(false);
     return; // aqui como um preventDefault()
   }
@@ -145,9 +154,10 @@ export default function EventosPaage(props) {
       return; //retorna a função sem executar o restante do código
     }
 
-    setShowSpinner(true);
+    
     try {
-      const promise = await api.delete(`${eventsResource}/${idElemento}`);
+      setShowSpinner(true);
+      const promise = await api.delete(`Evento/${idElemento}`);
 
       if (promise.status === 204) {
         setNotifyUser({
@@ -193,13 +203,14 @@ export default function EventosPaage(props) {
   async function handleSubmit(e) {
     e.preventDefault();
     setShowSpinner(true);
+    
     // Validação dos campos
     if (
-      nomeEvento.trim().length === 0 ||
-      descricaoEvento.trim().length === 0 ||
-      tipoEvento.trim().length === 0 ||
-      dataEvento.trim().length === 0
+      frmEditData.nome.trim().length === 0 ||
+      frmEditData.descricao.trim().length === 0 ||
+      frmEditData.dataEvento.trim().length === 0
     ) {
+      
       setNotifyUser({
         titleNote: "Atenção",
         textNote: "Preencha os campos corretamente",
@@ -214,29 +225,30 @@ export default function EventosPaage(props) {
 
     // console.log("teste");
     try {
-      // const promise = await api.post(`/Eventos`, {
-      await api.post(eventsResource, {
-        nomeEvento,
-        dataEvento,
-        descricao: descricaoEvento,
-        idInstituicao: instituicao, //por enquanto chumbado
-        idTipoEvento: tipoEvento,
-      });
-      // setFrmEditData({});//limpa os dados do formulário
+
+      await api.post("/Evento", frmEditData);
+      
+
       const newListEvents = await api.get(eventsResource);
       setEventos(newListEvents.data);
       setNotifyUser({
         titleNote: "Sucesso",
-        textNote: `Evento ( ${nomeEvento} ) cadastrado com sucesso!`,
+        textNote: `Evento ( ${frmEditData.nome} ) cadastrado com sucesso!`,
         imgIcon: "success",
         imgAlt:
           "Imagem de ilustração de sucesso. Moça segurando um balão com símbolo de confirmação ok.",
         showMessage: true,
       });
-      setNomeEvento("");
-      setDescricaoEvento("");
-      setTipoEvento("");
-      setDFataEvento("");
+// um clear pra n dar merda quando dar reload
+setFrmEditData(prev => ({
+  ...prev,
+  idTipoEvento: "",
+  nome: "",
+  descricao: "",
+  idInstituicao: "",
+  dataEvento: ""
+}));
+
     } catch (error) {
       setNotifyUser({
         titleNote: "Erro",
@@ -251,28 +263,9 @@ export default function EventosPaage(props) {
     setShowSpinner(false);
   }
 
-  /**
-   * Esta função faz um DE/PARA no array de tipos de eventos vindo do banco de dados.
-   * idInstituicao vira value
-   * titulo vira o texto
-   *
-   * @param {[{}]} arrEvents
-   * @returns array
-   */
-  function fromToEventType(arrEvents) {
-    // console.log(arrEvents);
-    if (arrEvents.length === 0) return [];
 
-    const arrAux = [];
+  
 
-    arrEvents.forEach((event) => {
-      arrAux.push({ value: event.idTipoEvento, text: event.titulo });
-    });
-
-    return arrAux;
-  }
-
-  // THE COMPONENT
   return (
     <>
       <MainContent>
@@ -306,10 +299,10 @@ export default function EventosPaage(props) {
                       id="nome"
                       name="nome"
                       placeholder="Nome"
-                      value={nomeEvento}
+                      value={frmEditData.nome}
                       manipulationFunction={(e) =>
-                        setNomeEvento(e.target.value)
-                      }
+                      setFrmEditData(prev => ({ ...prev, nome: e.target.value }))
+                        }
                     />
 
                     <Input
@@ -318,21 +311,48 @@ export default function EventosPaage(props) {
                       id="descricao"
                       name="descricao"
                       placeholder="Descrição"
-                      value={descricaoEvento}
-                      manipulationFunction={(e) =>
-                        setDescricaoEvento(e.target.value)
-                      }
+                      value={frmEditData.descricao}
+                                          manipulationFunction={(e) =>
+                    setFrmEditData(prev => ({
+                    ...prev,
+                    descricao: e.target.value
+                    }))
+                    }
                     />
 
                     <Select
                       id="tipo-evento"
-                      name="tipo-evento"
+                      name="IdTipoEvento"
                       required={true}
-                      options={tiposEvento} // aqui o array dos tipos
+                      options={tipoEvento}
+                      value={frmEditData.idTipoEvento || ""} 
+                      optionValueKey="idTipoEvento"
+                      optionLabelKey="titulo"
+                     manipulationFunction={(e) =>
+                    setFrmEditData(prev => ({
+                    ...prev,
+                    idTipoEvento: e.target.value
+                    }))
+                    }
+                    />
+
+                      <Select
+                      id="instituicao"
+                      name="IdInstituicao"
+                      required={true}
+                      options={instituicao}
+                      value={frmEditData.idInstituicao}
+                      optionValueKey="idInstituicao"
+                      optionLabelKey="nomeFantasia" 
                       manipulationFunction={(e) =>
-                        setTipoEvento(e.target.value)
-                      } // aqui só a variável state
-                      defaultValue={tipoEvento}
+                    setFrmEditData(prev => ({
+                    ...prev,
+                    idInstituicao: e.target.value
+                    }))
+                    }
+                      
+
+                      
                     />
 
                     <Input
@@ -341,10 +361,13 @@ export default function EventosPaage(props) {
                       id="dataEvento"
                       name="dataEvento"
                       placeholder="Data do Evento"
-                      value={dataEvento}
-                      manipulationFunction={(e) =>
-                        setDFataEvento(e.target.value)
-                      }
+                      value={frmEditData.dataEvento}
+                     manipulationFunction={(e) =>
+                    setFrmEditData(prev => ({
+                    ...prev,
+                    dataEvento: e.target.value
+                    }))
+                    }
                     />
 
                     <Button
@@ -352,6 +375,7 @@ export default function EventosPaage(props) {
                       id="cadastrar"
                       textButton="Cadastrar"
                       additionalClass="btn-cadastrar"
+                      // manipulationFunction = {(e) =>}
                     />
                   </>
                 ) : (
@@ -362,12 +386,12 @@ export default function EventosPaage(props) {
                       required={true}
                       id="nome"
                       name="nome"
-                      placeholder="Nome Evento"
-                      value={frmEditData.nomeEvento}
+                      placeholder="Nome"
+                      value={frmEditData.nome}
                       manipulationFunction={(e) => {
                         setFrmEditData({
                           ...frmEditData,
-                          nomeEvento: e.target.value,
+                          nome: e.target.value,
                         });
                       }}
                     />
@@ -385,21 +409,40 @@ export default function EventosPaage(props) {
                         });
                       }}
                     />
-
                     <Select
                       id="tipo-evento"
-                      name="tipo-evento"
+                      name="IdTipoEvento"
                       required={true}
-                      options={tiposEvento}
-                      defaultValue={frmEditData.idTipoEvento}
-                      manipulationFunction={(e) => {
-                        setFrmEditData({
-                          ...frmEditData,
-                          idTipoEvento: e.target.value,
-                        });
-                      }}
+                      options={tipoEvento}
+                      value={frmEditData.idTipoEvento || ""} 
+                      optionValueKey="idTipoEvento"
+                      optionLabelKey="titulo"
+                     manipulationFunction={(e) =>
+                    setFrmEditData(prev => ({
+                    ...prev,
+                    idTipoEvento: e.target.value
+                    }))
+                    }
                     />
 
+                      <Select
+                      id="instituicao"
+                      name="IdInstituicao"
+                      required={true}
+                      options={instituicao}
+                      value={frmEditData.idInstituicao}
+                      optionValueKey="idInstituicao"
+                      optionLabelKey="nomeFantasia" 
+                      manipulationFunction={(e) =>
+                    setFrmEditData(prev => ({
+                    ...prev,
+                    idInstituicao: e.target.value
+                    }))
+                    }
+                      
+
+                      
+                    />
                     <Input
                       type="date"
                       required={true}

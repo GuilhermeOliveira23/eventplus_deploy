@@ -26,4 +26,8 @@ export const dateFormateViewToDb =  date => {
     
     return date = `${date[2]}/${date[1]}/${date[0]}`//recria a string data formatada para visualização: yyyy-mm-dd
 }
-export const truncateDateFromDb =  date => date.substr(0,10)
+export const truncateDateFromDb = (date)  => 
+{
+    if(!date) return "";
+    return(date.substr(0,10))
+};

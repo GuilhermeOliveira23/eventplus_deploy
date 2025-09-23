@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./HomePage.css";
-
+import EventosPage from "../EventosPage/EventosPage";
+import EventosAlunoPage from "../EventosAlunoPage/EventosAlunoPage";
+import Rotas from "../../routes/routes";
 import Banner from "../../components/Banner/Banner";
 import MainContent from "../../components/MainContent/MainContent";
 import VisionSection from "../../components/VisionSection/VisionSection";
@@ -47,7 +49,8 @@ const HomePage = () => {
     <MainContent>
       {<Notification {...notifyUser} setNotifyUser={setNotifyUser} />}
       <Banner />
-
+      
+  {/* <EventosAlunoPage/> */}
       {/* PRÓXIMOS EVENTOS */}
       <section className="proximos-eventos">
         <Container>

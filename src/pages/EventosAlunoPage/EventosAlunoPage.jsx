@@ -19,128 +19,86 @@ import { UserContext } from "../../context/AuthContext";
 const EventosAlunoPage = () => {
   // state do menu mobile
 
-  const [eventos, setEventos] = useState([]);
+
   // select mocado
   // const [quaisEventos, setQuaisEventos] = useState([
   const quaisEventos = [
     { value: 1, text: "Todos os eventos" },
     { value: 2, text: "Meus eventos" },
   ];
-
-  const [tipoEvento, setTipoEvento] = useState("1"); //código do tipo do Evento escolhido
+  const[frmEditData, setFrmEditData] = useState({
+    idTipoEvento: ""
+})
+  const [tipoEvento, setTipoEvento] = useState([]); //código do tipo do Evento escolhido
   const [showSpinner, setShowSpinner] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [showEventos, setShowEventos] = useState([])
 
   // recupera os dados globais do usuário
   const { userData } = useContext(UserContext);
   const [comentario, setComentario] = useState("");
   const [idEvento, setIdEvento] = useState("");
   const [idComentario, setIdComentario] = useState(null);
+  // const [meusEventos, setMeusEventos] = useState([])
 
   useEffect(() => {
     loadEventsType();
-  }, [tipoEvento, userData.userId]); //
-
+  }, [userData.userId, frmEditData.idTipoEvento]); //
+  
+// Load da página com as informações que ela precisa
   async function loadEventsType() {
     setShowSpinner(true);
-    // setEventos([]); //zera o array de eventos
-    if (tipoEvento === "1") {
-      //todos os eventos (Evento)
-      try {
-        const todosEventos = await api.get(eventsResource);
-        const meusEventos = await api.get(
-          `${myEventsResource}/${userData.userId}`
-        );
+      if(!userData?.userId) return;
+      
+    try {
+    const promiseTipoEvento = await api.get("TipoEvento/Listar")
+    setTipoEvento(promiseTipoEvento.data)
+    const [todosEventos, minhasPresencas] = await Promise.all([
+      api.get(eventsResource),                                // todos eventos
+      api.get(`/PresencaEvento/ListarMinhas/${userData.userId}`) // presenças do usuário
+    ]);
 
-        const eventosMarcados = verificaPresenca(
-          todosEventos.data,
-          meusEventos.data
-        );
+    // monta um map rápido: idEvento -> presenca
+    const presencasMap = new Map(
+  minhasPresencas.data.map(p => [p.evento.idEvento, p])
+);
 
-        setEventos(eventosMarcados);
+    // padroniza todos eventos
+    let eventosCompletos = todosEventos.data.map(e => {
+      const presenca = presencasMap.get(e.idEvento);
 
-        // console.clear();
+      return {
+        ...e,
+        situacao: presenca ? presenca.situacao : false,
+        idPresencaEvento: presenca ? presenca.idPresencaEvento : null
+      };
+    });
 
-        // console.log("TODOS OS EVENTOS");
-        // console.log(todosEventos.data);
-
-        // console.log("MEUS EVENTOS");
-        // console.log(meusEventos.data);
-
-        // console.log("EVENTOS MARCADOSSSS:");
-        // console.log(eventosMarcados);
-      } catch (error) {
-        //colocar o notification
-        console.log("Erro na API");
-        console.log(error);
-      }
-    } else if (tipoEvento === "2") {
-      /**
-       * Lista os meus eventos (PresencasEventos)
-       * retorna um formato diferente de array
-       */
-      try {
-        const retornoEventos = await api.get(
-          `${myEventsResource}/${userData.userId}`
-        );
-        // console.clear();
-        // console.log("MINHAS PRESENÇAS");
-        // console.log(retornoEventos.data);
-
-        const arrEventos = []; //array vazio
-
-        retornoEventos.data.forEach((e) => {
-          arrEventos.push({
-            ...e.evento,
-            situacao: e.situacao,
-            idPresencaEvento: e.idPresencaEvento,
-          });
-        });
-
-        // console.log(arrEventos);
-        setEventos(arrEventos);
-      } catch (error) {
-        //colocar o notification
-        console.log("Erro na API");
-        console.log(error);
-      }
-    } else {
-      setEventos([]);
+    // aplica o filtro baseado no select
+    if (frmEditData.idTipoEvento === "meus") {
+      eventosCompletos = eventosCompletos.filter(ev => ev.situacao);
+    } 
+    // filtra por tipo de evento
+    else if (frmEditData.idTipoEvento !== "todos" && frmEditData.idTipoEvento !== "") {
+      
+      eventosCompletos = eventosCompletos.filter(
+        ev => ev.idTipoEvento === frmEditData.idTipoEvento
+      );
     }
+
+    setShowEventos(eventosCompletos);
+  } catch (err) {
+    console.log("Erro na API", err);
+  }
+      
+    
     setShowSpinner(false);
   }
-  const verificaPresenca = (arrAllEvents, eventsUser) => {
-    for (let x = 0; x < arrAllEvents.length; x++) {
-      //para cada evento principal
-      for (let i = 0; i < eventsUser.length; i++) {
-        //procurar a correspondência em minhas presenças
-        if (arrAllEvents[x].idEvento === eventsUser[i].evento.idEvento) {
-          arrAllEvents[x].situacao = true;
-          arrAllEvents[x].idPresencaEvento = eventsUser[i].idPresencaEvento;
-          break; //paro de procurar para o evento principal atual
-        }
-      }
-    }
-
-    //retorna todos os eventos marcados com a presença do usuário
-    return arrAllEvents;
-  };
-
+ 
   // toggle meus eventos ou todos os eventos
-  function myEvents(tpEvent) {
-    setTipoEvento(tpEvent);
-  }
-
   const showHideModal = (idEvent) => {
-    // console.clear();
-    // console.log("id do evento atual");
-    // console.log(idEvent);
-
     setShowModal(showModal ? false : true);
-    // setUserData({ ...userData, idEvento: idEvent });
     setIdEvento(idEvent);
-    // console.log("após guardar no state do usuário");
-    // console.log(idEvent);
   };
 
   // ler um comentário - get
@@ -156,11 +114,6 @@ const EventosAlunoPage = () => {
       const myComm = await promise.data.filter(
         (comm) => comm.idEvento === idEvento && comm.idUsuario === idUsuario
       );
-
-      // console.log("QUANTIDADE DE DADOS NO ARRAY FILTER");
-      // console.log(myComm.length);
-      // console.log(myComm);
-
       setComentario(myComm.length > 0 ? myComm[0].descricao : "");
       setIdComentario(myComm.length > 0 ? myComm[0].idComentarioEvento : null);
     } catch (error) {
@@ -205,6 +158,7 @@ const EventosAlunoPage = () => {
     }
   };
 
+  //Connect e disconnect do toggle
   async function handleConnect(eventId, whatTheFunction, presencaId = null) {
     if (whatTheFunction === "connect") {
       try {
@@ -219,24 +173,32 @@ const EventosAlunoPage = () => {
           loadEventsType();
           alert("Presença confirmada, parabéns");
         }
-      } catch (error) {}
+      } catch (error) { console.log(error)}
       return;
     }
 
-    // unconnect - aqui seria o else
+    else{
     try {
       const unconnected = await api.delete(
-        `${presencesEventResource}/${presencaId}`
+        `PresencaEvento/${presencaId}`
       );
       if (unconnected.status === 204) {
-        loadEventsType();
+        loadEventsType(frmEditData.idTipoEvento);
         alert("Desconectado do evento");
+
       }
     } catch (error) {
       console.log("Erro ao desconecar o usuário do evento");
       console.log(error);
     }
   }
+}
+  // TipoEvento opções default
+  const tipoEventoComExtras = [
+  { idTipoEvento: "todos", titulo: "Todos" },
+  { idTipoEvento: "meus", titulo: "Meus" },
+  ...tipoEvento
+];
 
   return (
     <>
@@ -248,13 +210,17 @@ const EventosAlunoPage = () => {
             id="id-tipo-evento"
             name="tipo-evento"
             required={true}
-            options={quaisEventos} // aqui o array dos tipos
-            manipulationFunction={(e) => myEvents(e.target.value)} // aqui só a variável state
-            defaultValue={tipoEvento}
-            additionalClass="select-tp-evento"
+            options={tipoEventoComExtras}
+            value={frmEditData.idTipoEvento || ""} 
+            optionValueKey="idTipoEvento"
+            optionLabelKey="titulo"
+            additionalClass="select-tp-evento" // aqui o array dos tipos
+            manipulationFunction={e => setFrmEditData(prev => ({...prev, idTipoEvento: e.target.value}))} // aqui só a variável state
+            
           />
           <Table
-            dados={eventos}
+            
+            dados={showEventos}
             fnConnect={handleConnect}
             fnShowModal={showHideModal}
           />

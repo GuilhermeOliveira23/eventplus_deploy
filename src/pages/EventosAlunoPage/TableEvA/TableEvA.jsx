@@ -9,7 +9,14 @@ import "react-tooltip/dist/react-tooltip.css";
 // import trashDelete from "../../../assets/images/trash-delete.svg";
 import "./TableEvA.css";
 
-const Table = ({ dados, fnConnect = null, fnShowModal = null }) => {
+const Table = ({
+   dados,
+   toggleActive,
+  fnConnect = null,
+  fnShowModal = null,
+  optionValueKey = "idTipoEvento",   // chave do valor (padrão "id")
+  optionLabelKey = "titulo" // chave do texto (padrão "titulo")
+   }) => {
   return (
     <table className="tbal-data">
       <thead className="tbal-data__head">
@@ -30,7 +37,7 @@ const Table = ({ dados, fnConnect = null, fnShowModal = null }) => {
           return (
             <tr className="tbal-data__head-row" key={Math.random()}>
               <td className="tbal-data__data tbal-data__data--big">
-                {e.nomeEvento}
+                {e.nome}
               </td>
 
               <td className="tbal-data__data tbal-data__data--big tbal-data__btn-actions">
@@ -51,6 +58,7 @@ const Table = ({ dados, fnConnect = null, fnShowModal = null }) => {
                     }}
                   />
                 ) : null}
+                
                 <ToggleSwitch
                   toggleActive={e.situacao}
                   manipulationFunction={
@@ -61,6 +69,7 @@ const Table = ({ dados, fnConnect = null, fnShowModal = null }) => {
                             e.situacao ? "unconnect" : "connect",
                             e.idPresencaEvento //parâmetro opcional
                           );
+                          
                         }
                       : () => {
                           alert("Evento não está mais disponível");

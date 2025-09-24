@@ -4,11 +4,13 @@ import api from "../../Services/Service.js";
 import { Tooltip } from "react-tooltip";
 import { UserContext } from "../../context/AuthContext.js"
 import { useContext } from "react";
+import Notification from "../Notification/Notification.js";
 
 // importar a função lá do arquivo stringFunction (destructuring)
 import { dateFormatDbToView } from "../../Utils/stringFunctions";
 
 const NextEvent = ({ title, description, eventDate, idEvent }) => {
+  const [notifyUser, setNotifyUser] = React.useState({}); //Componente Notification
   const { userData } = useContext(UserContext);
 
 async function conectar() {
@@ -18,19 +20,40 @@ async function conectar() {
   const jaCadastrado = presenca.data.some(p => p.idEvento === idEvent);
 
     if (jaCadastrado) {
-  alert("Você já se cadastrou nesse evento!!!");
+          setNotifyUser({
+          titleNote: "Erro",
+          textNote: `Você já se conectou a este evento`,
+          imgIcon: "danger",
+          imgAlt:
+            "Imagem de ilustração de atenção. Mulher ao lado do símbolo de exclamação",
+          showMessage: true,
+        });
 }
   else {
     try {
     
-    const response = await api.post("/PresencaEvento/Cadastrar", {
+    await api.post("/PresencaEvento/Cadastrar", {
       IdEvento: idEvent,
       IdUsuario: userData?.userId,
       Situacao: true
     });
-    console.log("Sucesso:", response.data);
+    setNotifyUser({
+          titleNote: "Sucesso",
+          textNote: `Conectado com sucesso!`,
+          imgIcon: "success",
+          imgAlt:
+            "Imagem de ilustração de sucesso. Moça segurando um balão com símbolo de confirmação ok.",
+          showMessage: true,
+        });
   } catch (error) {
-    console.error("Erro ao conectar:", error.response?.data || error.message);
+            setNotifyUser({
+          titleNote: "Erro",
+          textNote: `Problemas ao conectar ${error}`,
+          imgIcon: "danger",
+          imgAlt:
+            "Imagem de ilustração de atenção. Mulher ao lado do símbolo de exclamação",
+          showMessage: true,
+        });
   }
     }
   }
@@ -42,6 +65,7 @@ async function conectar() {
 
  }
   return (
+    <>
     <article className="event-card">
       <h2 className="event-card__title">{title}</h2>
 
@@ -70,6 +94,9 @@ async function conectar() {
         Conectar
       </a>
     </article>
+    <Notification {...notifyUser} setNotifyUser={setNotifyUser} />
+    </>
+    
   );
 };
 

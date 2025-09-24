@@ -11,7 +11,7 @@ const VisionSection = () => {
                     color='white'
                     potatoClass='vision__title'
                 />
-                <p className='vision__text'>Olá, Bem vindo ao EventPlus! Aqui você pode participar de eventos do Senai! Essa aplicação tem funções de Cadastro, Login, Presença em Eventos e mais! Eu fiz a API desse projeto no ASP.NET usando C#, e utilizei pacotes NPM como navigation, react e entre outros.
+                <p className='vision__text'>EventPlus é um sistema de gerenciamento de eventos que permite o cadastro, autenticação e controle de acesso de usuários. Com ele, você pode criar, visualizar, editar e excluir eventos de forma simples e segura. O sistema oferece login protegido, diferentes níveis de autorização e uma interface intuitiva para facilitar a organização e participação em eventos.
                 </p>
             </div>
         </section>

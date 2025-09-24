@@ -1,13 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./HomePage.css";
-import EventosPage from "../EventosPage/EventosPage";
-import EventosAlunoPage from "../EventosAlunoPage/EventosAlunoPage";
-import Rotas from "../../routes/routes";
+
 import Banner from "../../components/Banner/Banner";
 import MainContent from "../../components/MainContent/MainContent";
 import VisionSection from "../../components/VisionSection/VisionSection";
 import ContactSection from "../../components/ContactSection/ContactSection";
-import Title from "../../components/Title/Title";
 import NextEvent from "../../components/NextEvent/NextEvent";
 import Container from "../../components/Container/Container";
 import api from "../../Services/Service";
@@ -17,7 +14,7 @@ import { nextEventResource } from "../../Services/Service";
 
 const HomePage = () => {
   const [nextEvents, setNextEvents] = useState([]);
-  const [notifyUser, setNotifyUser] = useState(); //Componente Notification
+  const [notifyUser, setNotifyUser] = useState({}); //Componente Notification
 
   // roda somente na inicialização do componente
   useEffect(() => {
@@ -45,7 +42,7 @@ const HomePage = () => {
   }, []);
 
   return (
-    
+    <>
     <MainContent>
       {<Notification {...notifyUser} setNotifyUser={setNotifyUser} />}
       <Banner />
@@ -75,6 +72,9 @@ const HomePage = () => {
       <VisionSection />
       <ContactSection />
     </MainContent>
+    
+    </>
+    
   );
 };
 

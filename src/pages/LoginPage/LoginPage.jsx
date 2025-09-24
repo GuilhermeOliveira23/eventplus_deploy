@@ -87,7 +87,7 @@ const LoginPage = () => {
                   email: e.target.value.trim(),
                 });
               }}
-              placeholder="Username"
+              placeholder="email@gmail.com"
             />
             <Input
               additionalClass="frm-login__entry"

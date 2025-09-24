@@ -11,11 +11,9 @@ import "./TableEvA.css";
 
 const Table = ({
    dados,
-   toggleActive,
   fnConnect = null,
   fnShowModal = null,
-  optionValueKey = "idTipoEvento",   // chave do valor (padrão "id")
-  optionLabelKey = "titulo" // chave do texto (padrão "titulo")
+
    }) => {
   return (
     <table className="tbal-data">

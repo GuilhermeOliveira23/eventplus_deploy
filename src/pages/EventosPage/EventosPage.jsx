@@ -11,8 +11,6 @@ import {
 import Table from "./TableEv/TableEv";
 import api, {
   eventsResource,
-  eventsTypeResource,
-  institutionResource,
 } from "../../Services/Service";
 import Spinner from "../../components/Spinner/Spinner";
 import Notification from "../../components/Notification/Notification";
@@ -20,7 +18,7 @@ import { truncateDateFromDb } from "../../Utils/stringFunctions";
 import eventoImage from "../../assets/images/tipo-evento.svg";
 import "./EventosPage.css";
 
-export default function EventosPaage(props) {
+export default function EventosPage(props) {
   //dados do form
   const [tipoEvento, setTipoEvento] = useState([]); //código do tipo do Evento escolhido
   const [eventos, setEventos] = useState([]);;
@@ -78,9 +76,16 @@ export default function EventosPaage(props) {
   }
   // Exibe os dados na tela com o formulário de edição
   async function showUpdateForm(evento) {
+   
+   
       setFrmEditData(prev => ({
     ...prev,
-    IdEvento: evento // guarda o IdEvento no state
+    idEvento: evento.idEvento,
+    nome: evento.nome,
+    dataEvento: truncateDateFromDb(evento.dataEvento),
+    descricao: evento.descricao,
+    idInstituicao: evento.idInstituicao,
+    idTipoEvento: evento.idTipoEvento
   }));
     setFrmEdit(true);
   }
@@ -95,7 +100,7 @@ export default function EventosPaage(props) {
 
 
       const promise = await api.put(
-        `${"/Evento"}/${frmEditData.IdEvento}`, frmEditData
+        `${"/Evento"}/${frmEditData.idEvento}`, frmEditData
       );
 
       if (promise.status === 204) {
@@ -114,7 +119,7 @@ export default function EventosPaage(props) {
       } else {
         setNotifyUser({
           titleNote: "Erro",
-          textNote: `Problemas ao atualizar, contate o admnistrador do sistema)`,
+          textNote: `Problemas ao atualizar, contate o admnistrador do sistema`,
           imgIcon: "danger",
           imgAlt:
             "Imagem de ilustração de atenção. Mulher ao lado do símbolo de exclamação",
@@ -138,7 +143,7 @@ export default function EventosPaage(props) {
 
     setShowSpinner(false);
     setFrmEditData({
-        IdEvento: "",
+        idEvento: "",
         nome: "",
         dataEvento: "",
         descricao: "",

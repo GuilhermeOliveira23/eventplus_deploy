@@ -12,20 +12,12 @@ import api, {
   presencesEventResource,
   commentaryEventResource,
 } from "../../Services/Service";
-
+import Notification from "../../components/Notification/Notification";
 import "./EventosAlunoPage.css";
 import { UserContext } from "../../context/AuthContext";
 
 const EventosAlunoPage = () => {
-  // state do menu mobile
-
-
-  // select mocado
-  // const [quaisEventos, setQuaisEventos] = useState([
-  const quaisEventos = [
-    { value: 1, text: "Todos os eventos" },
-    { value: 2, text: "Meus eventos" },
-  ];
+  const [notifyUser, setNotifyUser] = useState({}); //Componente Notification
   const[frmEditData, setFrmEditData] = useState({
     idTipoEvento: ""
 })
@@ -171,9 +163,25 @@ const EventosAlunoPage = () => {
 
         if (promise.status === 201) {
           loadEventsType();
-          alert("Presença confirmada, parabéns");
+           setNotifyUser({
+          titleNote: "Sucesso",
+          textNote: `Conectado no Evento!`,
+          imgIcon: "success",
+          imgAlt:
+            "Imagem de ilustração de sucesso. Moça segurando um balão com símbolo de confirmação ok.",
+          showMessage: true,
+        });
         }
-      } catch (error) { console.log(error)}
+      } catch (error) {
+         setNotifyUser({
+          titleNote: "Erro",
+          textNote: `Problemas ao conectar ${error}`,
+          imgIcon: "danger",
+          imgAlt:
+            "Imagem de ilustração de atenção. Mulher ao lado do símbolo de exclamação",
+          showMessage: true,
+        });
+        }
       return;
     }
 
@@ -184,11 +192,18 @@ const EventosAlunoPage = () => {
       );
       if (unconnected.status === 204) {
         loadEventsType(frmEditData.idTipoEvento);
-        alert("Desconectado do evento");
+         setNotifyUser({
+          titleNote: "Sucesso",
+          textNote: `Desconectado do Evento!`,
+          imgIcon: "success",
+          imgAlt:
+            "Imagem de ilustração de sucesso. Moça segurando um balão com símbolo de confirmação ok.",
+          showMessage: true,
+        });
 
       }
     } catch (error) {
-      console.log("Erro ao desconecar o usuário do evento");
+      console.log("Erro ao desconectar o usuário do evento");
       console.log(error);
     }
   }
@@ -242,6 +257,7 @@ const EventosAlunoPage = () => {
           idComentario={idComentario}
         />
       ) : null}
+      <Notification {...notifyUser} setNotifyUser={setNotifyUser}/>
     </>
   );
 };

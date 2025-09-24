@@ -71,8 +71,8 @@ const Table = ({ dados, fnDelete = null, fnUpdate = null }) => {
                   src={editPen}
                   alt=""
                   onClick={() =>{
-                    fnUpdate(tp.idEvento);
-
+                    fnUpdate(tp);
+                    
                   }
                 }
                 />

@@ -4999,11 +4999,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Desktop\\Event_plus\\Event+_Api_tarde\\webapi.event+.tarde\\webapi.event+.tarde.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event+_Api_tarde\\webapi.event+.tarde\\webapi.event+.tarde.csproj",
       "projectName": "webapi.event+.tarde",
-      "projectPath": "C:\\Users\\User\\Desktop\\Event_plus\\Event+_Api_tarde\\webapi.event+.tarde\\webapi.event+.tarde.csproj",
+      "projectPath": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event+_Api_tarde\\webapi.event+.tarde\\webapi.event+.tarde.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Desktop\\Event_plus\\Event+_Api_tarde\\webapi.event+.tarde\\obj\\",
+      "outputPath": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event+_Api_tarde\\webapi.event+.tarde\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,6 +1,7 @@
 # EventPlus
 
 EventPlus é uma plataforma para gerenciamento de eventos que permite criar, editar, buscar e gerenciar inscrições em eventos. Projeto desenvolvido como portfólio para candidatura a vagas de estágio em desenvolvimento full‑stack.
+Link do site já pronto: https://eventplus-deploy.vercel.app/
 
 ## Tecnologias
 - Frontend: React.js  

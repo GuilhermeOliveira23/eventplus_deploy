@@ -70,14 +70,5 @@ O frontend normalmente ficará disponível em `http://localhost:3000`.
 - JWT__KEY=uma_chave_secreta_aqui
 
 
-## Endpoints principais (exemplos)
-- POST /api/auth/login — autenticação  
-- POST /api/auth/register — registro de usuário  
-- GET /api/events — listar eventos  
-- GET /api/events/{id} — obter detalhes de um evento  
-- POST /api/events — criar evento (autenticado)  
-- PUT /api/events/{id} — atualizar evento (autenticado)  
-- DELETE /api/events/{id} — remover evento (autenticado)
-
 ## Contato
 Guilherme Gozzi Oliveira — olivergozzi@gmail.com — Tel: +55 11 94249-0823

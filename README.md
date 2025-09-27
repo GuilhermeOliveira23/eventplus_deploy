@@ -16,8 +16,8 @@ Link do site já pronto: https://eventplus-deploy.vercel.app/
 ## Principais funcionalidades
 - Cadastro, edição e remoção de eventos (CRUD)  
 - Autenticação de usuários com JWT (login / registro)  
-- Upload de imagens para eventos  
-- Busca e filtro de eventos por data e local  
+- Conectar e Desconectar de Eventos  
+- Busca de eventos por tipo de evento e por meus eventos  
 - Integração frontend ↔ backend via API REST
 
 

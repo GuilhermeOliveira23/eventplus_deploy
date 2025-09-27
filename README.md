@@ -70,7 +70,6 @@ O frontend normalmente ficará disponível em `http://localhost:3000`.
 - DATABASE__CONNECTIONSTRING=Server=.;Database=EventPlusDb;Trusted_Connection=True;  
 - JWT__KEY=uma_chave_secreta_aqui
 
-Recomendo adicionar um arquivo de exemplo `.env.example` com essas variáveis.
 
 ## Endpoints principais (exemplos)
 - POST /api/auth/login — autenticação  
@@ -81,15 +80,5 @@ Recomendo adicionar um arquivo de exemplo `.env.example` com essas variáveis.
 - PUT /api/events/{id} — atualizar evento (autenticado)  
 - DELETE /api/events/{id} — remover evento (autenticado)
 
-Se quiser, posso substituir estes exemplos por trechos reais extraídos dos controllers do repositório.
-
-## Contribuindo
-1. Abra uma issue descrevendo a proposta ou correção.  
-2. Faça um fork, crie uma branch com a sua feature (`feature/nome-da-feature`) e abra um pull request.  
-3. Mantenha commits pequenos e mensagens claras.
-
 ## Contato
 Guilherme Gozzi Oliveira — olivergozzi@gmail.com — Tel: +55 11 94249-0823
-
-## Licença
-Este projeto está licenciado sob a licença MIT. Adicione um arquivo `LICENSE` se desejar.

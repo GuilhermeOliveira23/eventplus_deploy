@@ -18,9 +18,6 @@ EventPlus é uma plataforma para gerenciamento de eventos que permite criar, edi
 - Busca e filtro de eventos por data e local  
 - Integração frontend ↔ backend via API REST
 
-## Demonstração
-- Link de produção: (adicione aqui a URL do deploy público, se houver)  
-- Screenshots: adicione imagens na pasta `/docs/screenshots` e referencie aqui.
 
 ## Como rodar localmente
 

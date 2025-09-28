@@ -37,7 +37,9 @@ cd eventplus_deploy
 
 
 ## 2) Opção C — editar localmente (mais simples)
-Abra `appsettings.json` e altere apenas a connection string `ConnectionStrings:EventPlus` para apontar para o seu SQL local. Exemplo:
+Abra `appsettings.json` e altere apenas a connection string `ConnectionStrings:EventPlus` para apontar para o seu SQL local.
+Exemplo:
+
 { "ConnectionStrings": { "EventPlus": "Server={DESKTOP-KZ1TNT2\SQLEXPRESS};Database=eventplus_tarde;User Id=sa;Password=SuaSenhaAqui;TrustServerCertificate=True;Connect Timeout=30;" } }
 - Atualize a string de conexão em `appsettings.json` (ex.: `ConnectionStrings:DefaultConnection`)  
 - Aplique migrações (se houver):

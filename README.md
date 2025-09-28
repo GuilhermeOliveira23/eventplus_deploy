@@ -60,7 +60,10 @@ Essa aplicação já vem com swagger na Program.cs, então recomendo usar `http:
 npm install
 ```
 ## 4.0) Rodar pelo server Azure
-- Servidor está em .env, e quando rodar abrirá automaticamente pelo database do servidor Azure
+- Servidor está em .env, e quando rodar abrirá automaticamente pelo database do servidor Azure:
+```bash
+npm start
+```
 - O motivo disso foi pra facilidade de acesso e testes para quem quiser mexer na aplicação
 
 ## 4.1) Configuração da API Local

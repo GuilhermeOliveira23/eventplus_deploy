@@ -3,40 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B5B6AF2D-9CA0-18E0-0032-AF9B3C94235D}|webapi.event\u002B.tarde.csproj|c:\\users\\user\\desktop\\eventplus_deploy\\event\u002B_api_tarde\\webapi.event\u002B.tarde\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{B5B6AF2D-9CA0-18E0-0032-AF9B3C94235D}|webapi.event\u002B.tarde.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B5B6AF2D-9CA0-18E0-0032-AF9B3C94235D}|webapi.event\u002B.tarde.csproj|c:\\users\\user\\desktop\\eventplus_deploy\\event\u002B_api_tarde\\webapi.event\u002B.tarde\\contexts\\eventcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5B6AF2D-9CA0-18E0-0032-AF9B3C94235D}|webapi.event\u002B.tarde.csproj|solutionrelative:contexts\\eventcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B5B6AF2D-9CA0-18E0-0032-AF9B3C94235D}|webapi.event\u002B.tarde.csproj|c:\\users\\user\\desktop\\eventplus_deploy\\event\u002B_api_tarde\\webapi.event\u002B.tarde\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B5B6AF2D-9CA0-18E0-0032-AF9B3C94235D}|webapi.event\u002B.tarde.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B5B6AF2D-9CA0-18E0-0032-AF9B3C94235D}|webapi.event\u002B.tarde.csproj|c:\\users\\user\\desktop\\eventplus_deploy\\event\u002B_api_tarde\\webapi.event\u002B.tarde\\controllers\\tipousuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5B6AF2D-9CA0-18E0-0032-AF9B3C94235D}|webapi.event\u002B.tarde.csproj|solutionrelative:controllers\\tipousuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B5B6AF2D-9CA0-18E0-0032-AF9B3C94235D}|webapi.event\u002B.tarde.csproj|c:\\users\\user\\desktop\\eventplus_deploy\\event\u002B_api_tarde\\webapi.event\u002B.tarde\\repositories\\usuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B5B6AF2D-9CA0-18E0-0032-AF9B3C94235D}|webapi.event\u002B.tarde.csproj|solutionrelative:repositories\\usuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B5B6AF2D-9CA0-18E0-0032-AF9B3C94235D}|webapi.event\u002B.tarde.csproj|c:\\users\\user\\desktop\\eventplus_deploy\\event\u002B_api_tarde\\webapi.event\u002B.tarde\\repositories\\comentarioeventorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5B6AF2D-9CA0-18E0-0032-AF9B3C94235D}|webapi.event\u002B.tarde.csproj|solutionrelative:repositories\\comentarioeventorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B5B6AF2D-9CA0-18E0-0032-AF9B3C94235D}|webapi.event\u002B.tarde.csproj|c:\\users\\user\\desktop\\eventplus_deploy\\event\u002B_api_tarde\\webapi.event\u002B.tarde\\controllers\\tipousuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5B6AF2D-9CA0-18E0-0032-AF9B3C94235D}|webapi.event\u002B.tarde.csproj|solutionrelative:controllers\\tipousuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5B6AF2D-9CA0-18E0-0032-AF9B3C94235D}|webapi.event\u002B.tarde.csproj|c:\\users\\user\\desktop\\eventplus_deploy\\event\u002B_api_tarde\\webapi.event\u002B.tarde\\repositories\\eventorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5B6AF2D-9CA0-18E0-0032-AF9B3C94235D}|webapi.event\u002B.tarde.csproj|solutionrelative:repositories\\eventorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5B6AF2D-9CA0-18E0-0032-AF9B3C94235D}|webapi.event\u002B.tarde.csproj|c:\\users\\user\\desktop\\eventplus_deploy\\event\u002B_api_tarde\\webapi.event\u002B.tarde\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B5B6AF2D-9CA0-18E0-0032-AF9B3C94235D}|webapi.event\u002B.tarde.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B5B6AF2D-9CA0-18E0-0032-AF9B3C94235D}|webapi.event\u002B.tarde.csproj|c:\\users\\user\\desktop\\eventplus_deploy\\event\u002B_api_tarde\\webapi.event\u002B.tarde\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{B5B6AF2D-9CA0-18E0-0032-AF9B3C94235D}|webapi.event\u002B.tarde.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B5B6AF2D-9CA0-18E0-0032-AF9B3C94235D}|webapi.event\u002B.tarde.csproj|c:\\users\\user\\desktop\\eventplus_deploy\\event\u002B_api_tarde\\webapi.event\u002B.tarde\\repositories\\instituicaorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5B6AF2D-9CA0-18E0-0032-AF9B3C94235D}|webapi.event\u002B.tarde.csproj|solutionrelative:repositories\\instituicaorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B5B6AF2D-9CA0-18E0-0032-AF9B3C94235D}|webapi.event\u002B.tarde.csproj|c:\\users\\user\\desktop\\eventplus_deploy\\event\u002B_api_tarde\\webapi.event\u002B.tarde\\repositories\\comentarioeventorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5B6AF2D-9CA0-18E0-0032-AF9B3C94235D}|webapi.event\u002B.tarde.csproj|solutionrelative:repositories\\comentarioeventorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B5B6AF2D-9CA0-18E0-0032-AF9B3C94235D}|webapi.event\u002B.tarde.csproj|c:\\users\\user\\desktop\\eventplus_deploy\\event\u002B_api_tarde\\webapi.event\u002B.tarde\\repositories\\eventorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5B6AF2D-9CA0-18E0-0032-AF9B3C94235D}|webapi.event\u002B.tarde.csproj|solutionrelative:repositories\\eventorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B5B6AF2D-9CA0-18E0-0032-AF9B3C94235D}|webapi.event\u002B.tarde.csproj|c:\\users\\user\\desktop\\eventplus_deploy\\event\u002B_api_tarde\\webapi.event\u002B.tarde\\repositories\\instituicaorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5B6AF2D-9CA0-18E0-0032-AF9B3C94235D}|webapi.event\u002B.tarde.csproj|solutionrelative:repositories\\instituicaorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B5B6AF2D-9CA0-18E0-0032-AF9B3C94235D}|webapi.event\u002B.tarde.csproj|c:\\users\\user\\desktop\\eventplus_deploy\\event\u002B_api_tarde\\webapi.event\u002B.tarde\\controllers\\comentarioeventocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -77,6 +73,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{B5B6AF2D-9CA0-18E0-0032-AF9B3C94235D}|webapi.event\u002B.tarde.csproj|c:\\users\\user\\desktop\\eventplus_deploy\\event\u002B_api_tarde\\webapi.event\u002B.tarde\\repositories\\tipousuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B5B6AF2D-9CA0-18E0-0032-AF9B3C94235D}|webapi.event\u002B.tarde.csproj|solutionrelative:repositories\\tipousuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5B6AF2D-9CA0-18E0-0032-AF9B3C94235D}|webapi.event\u002B.tarde.csproj|c:\\users\\user\\desktop\\eventplus_deploy\\event\u002B_api_tarde\\webapi.event\u002B.tarde\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}|",
+      "RelativeMoniker": "D:0:0:{B5B6AF2D-9CA0-18E0-0032-AF9B3C94235D}|webapi.event\u002B.tarde.csproj|solutionrelative:readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -86,11 +86,76 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "README.md",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\README.md",
+              "RelativeDocumentMoniker": "README.md",
+              "ToolTip": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\README.md",
+              "RelativeToolTip": "README.md",
+              "ViewState": "AgIAAF4AAAAAAAAAAABRwGEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-09-28T18:15:47.551Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-24T02:37:32.952Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UsuarioRepository.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\Repositories\\UsuarioRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\UsuarioRepository.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\Repositories\\UsuarioRepository.cs",
+              "RelativeToolTip": "Repositories\\UsuarioRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-24T18:23:07.442Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TipoUsuarioController.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\Controllers\\TipoUsuarioController.cs",
+              "RelativeDocumentMoniker": "Controllers\\TipoUsuarioController.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\Controllers\\TipoUsuarioController.cs",
+              "RelativeToolTip": "Controllers\\TipoUsuarioController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-24T18:25:35.65Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EventoRepository.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\Repositories\\EventoRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\EventoRepository.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\Repositories\\EventoRepository.cs",
+              "RelativeToolTip": "Repositories\\EventoRepository.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAA1wB0AAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-24T18:17:32.482Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -100,18 +165,6 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-09-24T19:05:54.59Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ComentarioEventoRepository.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\Repositories\\ComentarioEventoRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\ComentarioEventoRepository.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\Repositories\\ComentarioEventoRepository.cs",
-              "RelativeToolTip": "Repositories\\ComentarioEventoRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T18:26:47.694Z"
             },
             {
               "$type": "Document",
@@ -127,69 +180,32 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "EventContext.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\Contexts\\EventContext.cs",
-              "RelativeDocumentMoniker": "Contexts\\EventContext.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\Contexts\\EventContext.cs",
-              "RelativeToolTip": "Contexts\\EventContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T18:06:44.416Z",
+              "DocumentIndex": 5,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-24T18:06:35.049Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAAAEkAAAAfAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "ComentarioEventoRepository.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\Repositories\\ComentarioEventoRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\ComentarioEventoRepository.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\Repositories\\ComentarioEventoRepository.cs",
+              "RelativeToolTip": "Repositories\\ComentarioEventoRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T02:37:32.952Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-24T18:26:47.694Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UsuarioRepository.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\Repositories\\UsuarioRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\UsuarioRepository.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\Repositories\\UsuarioRepository.cs",
-              "RelativeToolTip": "Repositories\\UsuarioRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T18:23:07.442Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "TipoUsuarioController.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\Controllers\\TipoUsuarioController.cs",
-              "RelativeDocumentMoniker": "Controllers\\TipoUsuarioController.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\Controllers\\TipoUsuarioController.cs",
-              "RelativeToolTip": "Controllers\\TipoUsuarioController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T18:25:35.65Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "EventoRepository.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\Repositories\\EventoRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\EventoRepository.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\Repositories\\EventoRepository.cs",
-              "RelativeToolTip": "Repositories\\EventoRepository.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T18:17:32.482Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 9,
               "Title": "UsuarioController.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\Controllers\\UsuarioController.cs",
               "RelativeDocumentMoniker": "Controllers\\UsuarioController.cs",
@@ -201,19 +217,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
-              "ToolTip": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\Properties\\launchSettings.json",
-              "RelativeToolTip": "Properties\\launchSettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-09-24T18:06:35.049Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 10,
               "Title": "TipoEventoController.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\Controllers\\TipoEventoController.cs",
               "RelativeDocumentMoniker": "Controllers\\TipoEventoController.cs",
@@ -225,7 +229,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 11,
               "Title": "PresencaEventoController.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\Controllers\\PresencaEventoController.cs",
               "RelativeDocumentMoniker": "Controllers\\PresencaEventoController.cs",
@@ -237,7 +241,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 12,
               "Title": "LoginController.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\Controllers\\LoginController.cs",
               "RelativeDocumentMoniker": "Controllers\\LoginController.cs",
@@ -249,7 +253,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 13,
               "Title": "InstituicaoController.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\Controllers\\InstituicaoController.cs",
               "RelativeDocumentMoniker": "Controllers\\InstituicaoController.cs",
@@ -261,7 +265,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 17,
               "Title": "TipoUsuarioRepository.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\Repositories\\TipoUsuarioRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\TipoUsuarioRepository.cs",
@@ -273,7 +277,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 8,
               "Title": "ComentarioEventoController.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\Controllers\\ComentarioEventoController.cs",
               "RelativeDocumentMoniker": "Controllers\\ComentarioEventoController.cs",
@@ -285,7 +289,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 16,
               "Title": "TipoEventoRepository.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\Repositories\\TipoEventoRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\TipoEventoRepository.cs",
@@ -297,7 +301,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 15,
               "Title": "PresencaEventoRepository.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\Repositories\\PresencaEventoRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\PresencaEventoRepository.cs",
@@ -309,7 +313,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 14,
               "Title": "EventoController.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\Controllers\\EventoController.cs",
               "RelativeDocumentMoniker": "Controllers\\EventoController.cs",

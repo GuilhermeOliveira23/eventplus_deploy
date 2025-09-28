@@ -3,8 +3,24 @@ using Microsoft.IdentityModel.Tokens;
 using webapi.event_.tarde.Contexts;
 using webapi.event_.tarde.Interfaces;
 using webapi.event_.tarde.Repositories;
+using System.Text.RegularExpressions;
+// não remova, é para testes
+
 
 var builder = WebApplication.CreateBuilder(args);
+
+//DEBUG: mostrar qual connection string foi resolvida
+//string ResolveAndMask(string? cs)
+//{
+//    if (string.IsNullOrEmpty(cs)) return "<null or empty>";
+//    // mascara password=... e pwd=...
+//    var masked = Regex.Replace(cs, "(?i)(password|pwd)\\s*=\\s*([^;]+)", "$1=****", RegexOptions.Compiled);
+//    return masked;
+//}
+
+//var resolvedCs = builder.Configuration.GetConnectionString("EventPlus");
+//Console.WriteLine($"[DEBUG] ConnectionString(EventPlus) = {ResolveAndMask(resolvedCs)}");
+
 
 // ======= Serviços =======
 builder.Services.AddControllers();
@@ -57,6 +73,8 @@ builder.Services.AddCors(options =>
             .AllowAnyMethod();
         });
 });
+
+
 // Connection string do Azure SQL (ou do appsettings)
 var connectionString = builder.Configuration.GetConnectionString("EventPlus");
 
@@ -64,6 +82,7 @@ builder.Services.AddDbContext<EventContext>(options =>
     options.UseSqlServer(connectionString, sqlOptions =>
     {
         sqlOptions.CommandTimeout(60); // 60 segundos
+         
     })
 );
 var app = builder.Build();
@@ -88,7 +107,7 @@ app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "Minha API V1");
-    c.RoutePrefix = "swagger"; // ou "" se quiser na raiz
+    c.RoutePrefix = "swagger";
 });
 
 // CORS

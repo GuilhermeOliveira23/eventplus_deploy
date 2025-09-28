@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>webapi.event_.tarde</RootNamespace>
+    <UserSecretsId>e8604844-ba29-4e6b-85a1-7915fa3cc6b9</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

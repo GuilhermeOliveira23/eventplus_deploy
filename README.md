@@ -60,10 +60,17 @@ Essa aplicação já vem com swagger na Program.cs, então recomendo usar `http:
 npm install
 ```
 
-## 4) Service
-- Abra `service.js` dentro da pastar Service
-- Mude `apiPort` para a porta da sua api
-- Troque `externalApiUrl` por `localApiUrl` em `baseUrl`
+## 4) Configuração da API Local
+- **Abra o arquivo `.env`** na raiz do projeto
+- **Altere a porta** para a porta da sua API local:
+```env
+REACT_APP_LOCAL_API_URL=https://localhost:SUAPORTA/api
+```
+- **Exemplo**: Se sua API roda na porta 5000, use:
+```env
+REACT_APP_LOCAL_API_URL=https://localhost:5000/api
+```
+
 - Inicie a aplicação:
 ```bash
 npm start

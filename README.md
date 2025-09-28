@@ -61,9 +61,9 @@ npm install
 ```
 
 ## 4) Service
--Abra `service.js` dentro da pastar Service
--Mude `apiPort` para a porta da sua api
--Troque `externalApiUrl` por `localApiUrl` em `baseUrl`
+- Abra `service.js` dentro da pastar Service
+- Mude `apiPort` para a porta da sua api
+- Troque `externalApiUrl` por `localApiUrl` em `baseUrl`
 - Inicie a aplicação:
 ```bash
 npm start

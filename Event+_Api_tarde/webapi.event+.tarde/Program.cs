@@ -1,9 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
+using System.Text.RegularExpressions;
 using webapi.event_.tarde.Contexts;
 using webapi.event_.tarde.Interfaces;
 using webapi.event_.tarde.Repositories;
-using System.Text.RegularExpressions;
 // não remova, é para testes
 
 
@@ -47,7 +48,37 @@ builder.Services.AddAuthentication(options =>
 
 // Swagger
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    // Adiciona a definição de segurança para JWT Bearer
+    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        In = ParameterLocation.Header,
+        Description = "Por favor, insira 'Bearer ' seguido do seu token JWT",
+        Name = "Authorization",
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = "Bearer",
+        BearerFormat = "JWT",
+    });
+
+    // Adiciona o requisito de segurança que aplica a definição acima
+    options.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            new string[] {}
+        }
+    });
+});
+
+
 
 builder.Services.AddScoped<IEventoRepository, EventoRepository>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
@@ -87,8 +118,8 @@ builder.Services.AddDbContext<EventContext>(options =>
 );
 var app = builder.Build();
 
-// ======= Middleware =======
-app.UseHttpsRedirection();
+
+
 
 // Swagger em qualquer ambiente
 // Antes
@@ -109,8 +140,11 @@ app.UseSwaggerUI(c =>
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "Minha API V1");
     c.RoutePrefix = "swagger";
 });
+// ======= Middleware =======
+app.UseHttpsRedirection();
 
 // CORS
+app.UseRouting();
 app.UseCors("AllowReactApp");
 
 app.UseAuthentication();

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using webapi.event_.tarde.Domains;
 using webapi.event_.tarde.Interfaces;
@@ -19,6 +20,7 @@ namespace webapi.event_.tarde.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Administrador")]
         public IActionResult Post(TipoEvento tipoEvento)
         {
 
@@ -36,6 +38,7 @@ namespace webapi.event_.tarde.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Administrador")]
         public IActionResult Delete(Guid id)
         {
 
@@ -56,6 +59,7 @@ namespace webapi.event_.tarde.Controllers
         }
 
         [HttpGet("Listar")]
+        [Authorize]
         public IActionResult Get()
         {
             try
@@ -72,6 +76,7 @@ namespace webapi.event_.tarde.Controllers
 
         }
         [HttpGet("{id}")]
+        [Authorize]
         public IActionResult GetById(Guid id)
         {
             try
@@ -90,6 +95,7 @@ namespace webapi.event_.tarde.Controllers
 
         }
         [HttpPut("{id}")]
+        [Authorize(Roles = "Administrador")]
         public IActionResult Put(Guid id, TipoEvento estudio)
         {
             try

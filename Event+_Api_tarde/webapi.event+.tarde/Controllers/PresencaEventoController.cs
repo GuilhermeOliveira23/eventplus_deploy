@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using webapi.event_.tarde.Domains;
 using webapi.event_.tarde.Interfaces;
@@ -21,6 +22,7 @@ namespace webapi.event_.tarde.Controllers
         }
 
         [HttpPost("Cadastrar")]
+        [Authorize(Roles = "Comum")]
         public IActionResult Post(PresencaEvento presencaEvento)
         {
 
@@ -43,6 +45,7 @@ namespace webapi.event_.tarde.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Comum")]
         public IActionResult Delete(Guid id)
         {
 
@@ -63,6 +66,7 @@ namespace webapi.event_.tarde.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Comum")]
         public IActionResult Get()
         {
             try
@@ -79,6 +83,7 @@ namespace webapi.event_.tarde.Controllers
 
         }
         [HttpGet("ListarMinhas/{id}")]
+        [Authorize(Roles = "Comum")]
         public IActionResult GetById(Guid id)
         {
 
@@ -100,6 +105,7 @@ namespace webapi.event_.tarde.Controllers
 
         }
         [HttpPut("{id}")]
+        [Authorize(Roles = "Comum")]
         public IActionResult Put(Guid id, PresencaEvento presencaEvento)
         {
             try

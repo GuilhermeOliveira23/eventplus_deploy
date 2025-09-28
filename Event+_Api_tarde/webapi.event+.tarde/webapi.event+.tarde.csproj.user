@@ -2,6 +2,6 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ActiveDebugProfile>https</ActiveDebugProfile>
-    <NameOfLastUsedPublishProfile>C:\Users\User\Desktop\Event_plus\Event+_Api_tarde\webapi.event+.tarde\Properties\PublishProfiles\eventplusapi - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>C:\Users\User\Desktop\eventplus_deploy\Event+_Api_tarde\webapi.event+.tarde\Properties\PublishProfiles\eventplusapi - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
 </Project>

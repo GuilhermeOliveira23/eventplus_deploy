@@ -46,6 +46,29 @@ const apiUrl = process.env.REACT_APP_API_URL || process.env.REACT_APP_LOCAL_API_
 const api = axios.create({
     baseURL: apiUrl
 });
+// Adiciona um interceptador que será executado ANTES de cada requisição
+api.interceptors.request.use(
+    async (config) => {
+        // Tenta pegar os dados do usuário do localStorage
+        // A chave "user" deve ser a mesma que você usa para salvar no AuthContext
+        const userData = localStorage.getItem("token");
+
+        if (userData) {
+            // Se encontrou os dados, converte para objeto
+            const user = JSON.parse(userData);
+            
+            // Adiciona o token no cabeçalho Authorization
+            config.headers.Authorization = `Bearer ${user.token}`;
+        }
+        
+        // Retorna a configuração da requisição (agora com o token, se houver)
+        return config;
+    },
+    (error) => {
+        // Se der erro, rejeita a promise
+        return Promise.reject(error);
+    }
+);
 
 
 

@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("webapi.event+.tarde")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0e486e911d54696e52f5309426b850436a4ece91")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+83284bdf370c20d961716dc6bc9f5d9fd40f22f9")]
 [assembly: System.Reflection.AssemblyProductAttribute("webapi.event+.tarde")]
 [assembly: System.Reflection.AssemblyTitleAttribute("webapi.event+.tarde")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

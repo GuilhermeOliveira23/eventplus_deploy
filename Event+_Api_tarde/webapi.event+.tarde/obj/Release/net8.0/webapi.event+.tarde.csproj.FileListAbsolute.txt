@@ -360,3 +360,4 @@ C:\Users\User\Desktop\eventplus_deploy\Event+_Api_tarde\webapi.event+.tarde\obj\
 C:\Users\User\Desktop\eventplus_deploy\Event+_Api_tarde\webapi.event+.tarde\obj\Release\net8.0\webapi.event+.tarde.pdb
 C:\Users\User\Desktop\eventplus_deploy\Event+_Api_tarde\webapi.event+.tarde\obj\Release\net8.0\webapi.event+.tarde.genruntimeconfig.cache
 C:\Users\User\Desktop\eventplus_deploy\Event+_Api_tarde\webapi.event+.tarde\obj\Release\net8.0\ref\webapi.event+.tarde.dll
+C:\Users\User\Desktop\eventplus_deploy\Event+_Api_tarde\webapi.event+.tarde\bin\Release\net8.0\appsettings.example.json

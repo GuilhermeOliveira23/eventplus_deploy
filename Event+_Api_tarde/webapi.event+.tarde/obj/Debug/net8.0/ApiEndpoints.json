@@ -158,6 +158,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "webapi.event_.tarde.Controllers.EventoController",
+    "Method": "Get",
+    "RelativePath": "api/Evento/Listar",
+    "HttpMethod": "HEAD",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "webapi.event_.tarde.Controllers.InstituicaoController",
     "Method": "Post",
     "RelativePath": "api/Instituicao",

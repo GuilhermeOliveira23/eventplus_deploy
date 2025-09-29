@@ -255,6 +255,16 @@
             "description": "OK"
           }
         }
+      },
+      "head": {
+        "tags": [
+          "Evento"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       }
     },
     "/api/Instituicao": {

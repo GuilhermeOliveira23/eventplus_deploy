@@ -1,5 +1,6 @@
 C:\Users\User\Desktop\eventplus_deploy\Event+_Api_tarde\webapi.event+.tarde\obj\Release\net8.0\PubTmp\Out\webapi.event+.tarde.exe
 C:\Users\User\Desktop\eventplus_deploy\Event+_Api_tarde\webapi.event+.tarde\obj\Release\net8.0\PubTmp\Out\appsettings.Development.json
+C:\Users\User\Desktop\eventplus_deploy\Event+_Api_tarde\webapi.event+.tarde\obj\Release\net8.0\PubTmp\Out\appsettings.example.json
 C:\Users\User\Desktop\eventplus_deploy\Event+_Api_tarde\webapi.event+.tarde\obj\Release\net8.0\PubTmp\Out\appsettings.json
 C:\Users\User\Desktop\eventplus_deploy\Event+_Api_tarde\webapi.event+.tarde\obj\Release\net8.0\PubTmp\Out\webapi.event+.tarde.dll
 C:\Users\User\Desktop\eventplus_deploy\Event+_Api_tarde\webapi.event+.tarde\obj\Release\net8.0\PubTmp\Out\webapi.event+.tarde.runtimeconfig.json

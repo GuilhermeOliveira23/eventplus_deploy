@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B5B6AF2D-9CA0-18E0-0032-AF9B3C94235D}|webapi.event\u002B.tarde.csproj|c:\\users\\user\\desktop\\eventplus_deploy\\event\u002B_api_tarde\\webapi.event\u002B.tarde\\controllers\\eventocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5B6AF2D-9CA0-18E0-0032-AF9B3C94235D}|webapi.event\u002B.tarde.csproj|solutionrelative:controllers\\eventocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B5B6AF2D-9CA0-18E0-0032-AF9B3C94235D}|webapi.event\u002B.tarde.csproj|c:\\users\\user\\desktop\\eventplus_deploy\\event\u002B_api_tarde\\webapi.event\u002B.tarde\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{B5B6AF2D-9CA0-18E0-0032-AF9B3C94235D}|webapi.event\u002B.tarde.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5B6AF2D-9CA0-18E0-0032-AF9B3C94235D}|webapi.event\u002B.tarde.csproj|c:\\users\\user\\desktop\\eventplus_deploy\\event\u002B_api_tarde\\webapi.event\u002B.tarde\\controllers\\eventocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5B6AF2D-9CA0-18E0-0032-AF9B3C94235D}|webapi.event\u002B.tarde.csproj|solutionrelative:controllers\\eventocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B5B6AF2D-9CA0-18E0-0032-AF9B3C94235D}|webapi.event\u002B.tarde.csproj|c:\\users\\user\\desktop\\eventplus_deploy\\event\u002B_api_tarde\\webapi.event\u002B.tarde\\controllers\\presencaeventocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -86,20 +86,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "EventoController.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\Controllers\\EventoController.cs",
               "RelativeDocumentMoniker": "Controllers\\EventoController.cs",
               "ToolTip": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\Controllers\\EventoController.cs",
               "RelativeToolTip": "Controllers\\EventoController.cs",
-              "ViewState": "AgIAADgAAAAAAAAAAAAwwE8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADgAAAAAAAAAAAAwwEIAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T18:13:14.122Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-24T18:13:14.122Z"
             },
             {
               "$type": "Document",
@@ -111,12 +110,11 @@
               "RelativeToolTip": "Controllers\\PresencaEventoController.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAuwHwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T18:24:57.052Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-24T18:24:57.052Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\eventplus_deploy\\Event\u002B_Api_tarde\\webapi.event\u002B.tarde\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -137,8 +135,7 @@
               "RelativeToolTip": "Controllers\\ComentarioEventoController.cs",
               "ViewState": "AgIAAF8AAAAAAAAAAAAcwGMAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T18:12:17.19Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-24T18:12:17.19Z"
             },
             {
               "$type": "Document",
@@ -150,8 +147,7 @@
               "RelativeToolTip": "Controllers\\InstituicaoController.cs",
               "ViewState": "AgIAAEcAAAAAAAAAAAAcwF0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T18:23:37.902Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-24T18:23:37.902Z"
             },
             {
               "$type": "Document",
@@ -163,8 +159,7 @@
               "RelativeToolTip": "Controllers\\LoginController.cs",
               "ViewState": "AgIAACEAAAAAAAAAAAAowBkAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T18:24:04.053Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-24T18:24:04.053Z"
             },
             {
               "$type": "Document",
@@ -176,8 +171,7 @@
               "RelativeToolTip": "Controllers\\TipoEventoController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T18:25:16.292Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-24T18:25:16.292Z"
             },
             {
               "$type": "Document",
@@ -189,8 +183,7 @@
               "RelativeToolTip": "Controllers\\UsuarioController.cs",
               "ViewState": "AgIAAFUAAAAAAAAAAAAmwF8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T18:26:00.008Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-24T18:26:00.008Z"
             },
             {
               "$type": "Document",
@@ -202,8 +195,7 @@
               "RelativeToolTip": "Controllers\\TipoUsuarioController.cs",
               "ViewState": "AgIAAFEAAAAAAAAAAAAmwGIAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T18:25:35.65Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-24T18:25:35.65Z"
             },
             {
               "$type": "Document",
@@ -215,8 +207,7 @@
               "RelativeToolTip": "Repositories\\EventoRepository.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAAQwB0AAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T18:17:32.482Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-24T18:17:32.482Z"
             },
             {
               "$type": "Document",
@@ -228,8 +219,7 @@
               "RelativeToolTip": "Repositories\\UsuarioRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T18:23:07.442Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-24T18:23:07.442Z"
             },
             {
               "$type": "Document",
@@ -265,8 +255,7 @@
               "RelativeToolTip": "Repositories\\InstituicaoRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T18:18:19.139Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-24T18:18:19.139Z"
             },
             {
               "$type": "Document",
@@ -290,8 +279,7 @@
               "RelativeToolTip": "Repositories\\ComentarioEventoRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T18:26:47.694Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-24T18:26:47.694Z"
             },
             {
               "$type": "Document",
@@ -303,8 +291,7 @@
               "RelativeToolTip": "Repositories\\TipoUsuarioRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T18:22:55.582Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-24T18:22:55.582Z"
             },
             {
               "$type": "Document",
@@ -316,8 +303,7 @@
               "RelativeToolTip": "Repositories\\TipoEventoRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T18:22:38.887Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-24T18:22:38.887Z"
             },
             {
               "$type": "Document",
@@ -329,8 +315,7 @@
               "RelativeToolTip": "Repositories\\PresencaEventoRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T18:22:17.57Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-24T18:22:17.57Z"
             }
           ]
         }

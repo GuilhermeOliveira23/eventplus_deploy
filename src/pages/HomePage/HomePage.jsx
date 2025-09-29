@@ -10,34 +10,45 @@ import Container from "../../components/Container/Container";
 import api from "../../Services/Service";
 import Notification from "../../components/Notification/Notification";
 import { nextEventResource } from "../../Services/Service";
+import Spinner from "../../components/Spinner/Spinner";
 
 
 const HomePage = () => {
+  const [showSpinner, setShowSpinner] = useState(true); //Spinner Loading
   const [nextEvents, setNextEvents] = useState([]);
   const [notifyUser, setNotifyUser] = useState({}); //Componente Notification
 
   // roda somente na inicialização do componente
   useEffect(() => {
+    
     async function getNextEvents() {
+      
       try {
         const promise = await api.get(nextEventResource);
-        const dados = await promise.data;
+        
         // console.log(dados);
-        setNextEvents(dados); //atualiza o state
+        setNextEvents(promise.data); //atualiza o state
 
       } catch (error) {
         console.log("não trouxe os próximos eventos, verifique lá!");
 
+      } finally {
+        setShowSpinner(false)
       }
+      
+      
     }
-
-    getNextEvents(); //chama a função
+    
+    getNextEvents();
+    
+     //chama a função
   }, []);
 
   return (
     <>
     <MainContent>
       {<Notification {...notifyUser} setNotifyUser={setNotifyUser} />}
+      {showSpinner ? <Spinner /> : null}
       <Banner />
       
   {/* <EventosAlunoPage/> */}

@@ -14,53 +14,69 @@ const NextEvent = ({ title, description, eventDate, idEvent }) => {
   const { userData } = useContext(UserContext);
 
 async function conectar() {
-  try{
-  console.log(userData.userId)
-  const presenca = await api.get(`PresencaEvento/ListarMinhas/${userData?.userId}`)
-  const jaCadastrado = presenca.data.some(p => p.idEvento === idEvent);
 
-    if (jaCadastrado) {
-          setNotifyUser({
-          titleNote: "Erro",
-          textNote: `Você já se conectou a este evento`,
-          imgIcon: "danger",
-          imgAlt:
-            "Imagem de ilustração de atenção. Mulher ao lado do símbolo de exclamação",
-          showMessage: true,
-        });
-}
-  else {
-    try {
-    
-    await api.post("/PresencaEvento/Cadastrar", {
-      IdEvento: idEvent,
-      IdUsuario: userData?.userId,
-      Situacao: true
-    });
-    setNotifyUser({
-          titleNote: "Sucesso",
-          textNote: `Conectado com sucesso!`,
-          imgIcon: "success",
-          imgAlt:
-            "Imagem de ilustração de sucesso. Moça segurando um balão com símbolo de confirmação ok.",
-          showMessage: true,
-        });
-  } catch (error) {
-            setNotifyUser({
-          titleNote: "Erro",
-          textNote: `Problemas ao conectar ${error}`,
-          imgIcon: "danger",
-          imgAlt:
-            "Imagem de ilustração de atenção. Mulher ao lado do símbolo de exclamação",
-          showMessage: true,
-        });
-  }
+  if (!userData || !userData.userId) {
+      setNotifyUser({
+        titleNote: "Aviso",
+        textNote: "Você precisa estar logado para se conectar a um evento.",
+        imgIcon: "warning",
+        imgAlt: "Imagem de ilustração de aviso.",
+        showMessage: true,
+      });
+      return;
     }
-  }
-  catch(error){
     
-    console.log("Deu erro ou no get ou no post", error);
-  }
+    else if(userData.role === "Administrador"){
+      setNotifyUser({
+        titleNote: "Aviso",
+        textNote: "Administradores não podem se conectar a eventos.",
+        imgIcon: "warning",
+        imgAlt: "Imagem de ilustração de aviso.",
+        showMessage: true,
+      });
+      return;
+    }
+    
+     try {
+      // Verifica se o usuário já está cadastrado no evento
+      const presenca = await api.get(`/PresencaEvento/ListarMinhas/${userData.userId}`);
+      const jaCadastrado = presenca.data.some(p => p.idEvento === idEvent);
+
+      if (jaCadastrado) {
+        setNotifyUser({
+          titleNote: "Erro",
+          textNote: "Você já está conectado a este evento.",
+          imgIcon: "danger",
+          imgAlt: "Imagem de ilustração de erro.",
+          showMessage: true,
+        });
+      } else {
+        // Tenta cadastrar a presença
+        await api.post("/PresencaEvento/Cadastrar", {
+          idEvento: idEvent,
+          idUsuario: userData.userId,
+          situacao: true,
+        });
+
+        setNotifyUser({
+          titleNote: "Sucesso",
+          textNote: "Conectado com sucesso!",
+          imgIcon: "success",
+          imgAlt: "Imagem de ilustração de sucesso.",
+          showMessage: true,
+        });
+      }
+    } catch (error) {
+      // 3. Tratamento de Erro Genérico e Inteligente
+      console.error("Erro ao tentar conectar ao evento:", error);
+      setNotifyUser({
+        titleNote: "Erro",
+        textNote: `Não foi possível conectar. Tente novamente. (Erro: ${error.response?.status || 'desconhecido'})`,
+        imgIcon: "danger",
+        imgAlt: "Imagem de ilustração de erro.",
+        showMessage: true,
+      });
+    }
 
 
  }

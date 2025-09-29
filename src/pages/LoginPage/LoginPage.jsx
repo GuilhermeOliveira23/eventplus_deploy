@@ -10,7 +10,7 @@ import "./LoginPage.css";
 import { UserContext } from "../../context/AuthContext";
 
 const LoginPage = () => {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState({email: "comum@gmail.com", senha: "123456"});
   //importa os dados globais do usuário
   const { userData, setUserData } = useContext(UserContext);
   const navigate = useNavigate();

@@ -63,8 +63,8 @@ namespace webapi.event_.tarde.Controllers
 
         }
 
-        [HttpGet("Listar")]
-        [Authorize]
+        [HttpGet("Listar"),HttpHead("Listar")]
+  
         public IActionResult Get()
         {
             try
@@ -81,7 +81,7 @@ namespace webapi.event_.tarde.Controllers
 
         }
         [HttpGet("{id}")]
-        [Authorize]
+       
         public IActionResult GetById(Guid id)
         {
             try

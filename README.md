@@ -36,7 +36,7 @@ cd eventplus_deploy
 ```
 
 
-## 2) Opção C — editar localmente (mais simples)
+## 2) Back-End — editar localmente (mais simples)
 Abra `appsettings.json` e altere apenas a connection string `ConnectionStrings:EventPlus` para apontar para o seu SQL local.
 Exemplo:
 

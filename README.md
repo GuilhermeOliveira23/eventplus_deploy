@@ -53,7 +53,7 @@ dotnet run
 A API normalmente ficará disponível em `http://localhost:5000` ou `https://localhost:5001`.
 Essa aplicação já vem com swagger na Program.cs, então recomendo usar `http://localhost:5000/swagger` no seu navegador ao invés de Insomnia ou outros.
 
-### 3) Frontend (React)
+## 3) Frontend (React)
 - Entre na pasta do frontend `eventplus_deploy` 
 - Instale dependências:
 ```bash

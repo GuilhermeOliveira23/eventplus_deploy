@@ -11,7 +11,14 @@ const VisionSection = () => {
                     color='white'
                     potatoClass='vision__title'
                 />
-                <p className='vision__text'>EventPlus é um sistema de gerenciamento de eventos que permite o cadastro, autenticação e controle de acesso de usuários. Com ele, você pode criar, visualizar, editar e excluir eventos de forma simples e segura. O sistema oferece login protegido, diferentes níveis de autorização e uma interface intuitiva para facilitar a organização e participação em eventos. Para testar: Administrador → admin@gmail.com / 123456 | Usuário comum → comum@gmail.com / 123456.
+                <p className='vision__text'>
+    Bem-vindo ao EventPlus!
+    O EventPlus é a minha solução completa para gerenciamento de eventos, um projeto desenvolvido de ponta a ponta por mim. A plataforma permite a criação, visualização, edição e exclusão de eventos de forma simples e segura, com autenticação e controle de acesso.
+    Como Acessar:
+    Painel do Administrador: Para gerenciar e criar eventos, utilize o login admin@gmail.com.
+    Interface do Usuário: Para participar e comentar nos eventos, acesse com comum@gmail.com.
+    A senha para ambas as contas é preenchida automaticamente para sua conveniência.
+    Feedbacks são bem vindos!
                 </p>
             </div>
         </section>

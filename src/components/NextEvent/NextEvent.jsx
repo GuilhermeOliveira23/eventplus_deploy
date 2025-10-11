@@ -18,7 +18,7 @@ async function conectar() {
   if (!userData || !userData.userId) {
       setNotifyUser({
         titleNote: "Aviso",
-        textNote: "Você precisa estar logado para se conectar a um evento.",
+        textNote: "Você precisa estar logado para se conectar a um evento.\nClique em Login no canto superior direito de sua tela!",
         imgIcon: "warning",
         imgAlt: "Imagem de ilustração de aviso.",
         showMessage: true,
@@ -44,10 +44,10 @@ async function conectar() {
 
       if (jaCadastrado) {
         setNotifyUser({
-          titleNote: "Erro",
+          titleNote: "Aviso",
           textNote: "Você já está conectado a este evento.",
-          imgIcon: "danger",
-          imgAlt: "Imagem de ilustração de erro.",
+          imgIcon: "warning",
+          imgAlt: "Imagem de ilustração de aviso.",
           showMessage: true,
         });
       } else {

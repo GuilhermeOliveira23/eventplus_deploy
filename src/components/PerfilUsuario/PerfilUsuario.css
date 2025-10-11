@@ -21,9 +21,9 @@
 
 .perfil-usuario__menuitem {
     font-family: Poppins-Regular;
-    font-size: .8rem;
+    font-size: 0.9rem;
     color: #201849;
-    text-decoration: none;
+    /* text-decoration: none; */
 }
 
 .perfil-usuario__icon {

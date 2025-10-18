@@ -49,8 +49,8 @@ const HomePage = () => {
     <MainContent>
       {<Notification {...notifyUser} setNotifyUser={setNotifyUser} />}
       {showSpinner ? <Spinner /> : null}
-      <Banner />
-      
+      <Banner/>
+      <VisionSection/>
   {/* <EventosAlunoPage/> */}
       {/* PRÓXIMOS EVENTOS */}
       <section className="proximos-eventos">
@@ -58,7 +58,7 @@ const HomePage = () => {
           {/* <Title titleText={"Próximos Eventos"} /> */}
 
           <div className="events-box">
-            {nextEvents.map((e) => {
+            {nextEvents.slice(0,8).map((e) => {
               return (
                 <NextEvent
                   key={e.idEvento}
@@ -73,7 +73,7 @@ const HomePage = () => {
         </Container>
       </section>
 
-      <VisionSection />
+      
       <ContactSection />
     </MainContent>
     

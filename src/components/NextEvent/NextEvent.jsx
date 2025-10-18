@@ -5,6 +5,7 @@ import { Tooltip } from "react-tooltip";
 import { UserContext } from "../../context/AuthContext.js"
 import { useContext } from "react";
 import Notification from "../Notification/Notification.js";
+import {useNavigate } from "react-router-dom";
 
 // importar a função lá do arquivo stringFunction (destructuring)
 import { dateFormatDbToView } from "../../Utils/stringFunctions";
@@ -12,6 +13,7 @@ import { dateFormatDbToView } from "../../Utils/stringFunctions";
 const NextEvent = ({ title, description, eventDate, idEvent }) => {
   const [notifyUser, setNotifyUser] = React.useState({}); //Componente Notification
   const { userData } = useContext(UserContext);
+  const navigate = useNavigate();
 
 async function conectar() {
 
@@ -45,11 +47,17 @@ async function conectar() {
       if (jaCadastrado) {
         setNotifyUser({
           titleNote: "Aviso",
-          textNote: "Você já está conectado a este evento.",
+          textNote: "Você já está conectado a este evento. Redirecionando à página de eventos...",
           imgIcon: "warning",
           imgAlt: "Imagem de ilustração de aviso.",
           showMessage: true,
         });
+
+       // Redireciona para a página de eventos do aluno após 2 segundos
+        setTimeout(() => {
+          navigate("/eventos-aluno");
+        }, 3000);
+
       } else {
         // Tenta cadastrar a presença
         await api.post("/PresencaEvento/Cadastrar", {

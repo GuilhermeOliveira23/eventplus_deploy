@@ -19,7 +19,7 @@ namespace webapi.event_.tarde.Controllers
         /// Popula o banco de dados com dados de teste
         /// </summary>
         /// <returns>Mensagem de sucesso ou erro</returns>
-        [HttpPost("populate")]
+        //[HttpPost("populate")]
         public async Task<IActionResult> PopulateDatabase()
         {
             try

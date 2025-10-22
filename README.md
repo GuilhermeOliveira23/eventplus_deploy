@@ -26,7 +26,7 @@ Link do site já pronto: https://eventplus-deploy.vercel.app/
 ### Pré-requisitos
 - .NET SDK compatível com o projeto  
 - Node.js (v16+ recomendado)  
-- SQL Server (ou ajuste a string de conexão)  
+- PostgreSQL (ou ajuste a string de conexão)  
 - Git
 
 ### 1) Clone o repositório

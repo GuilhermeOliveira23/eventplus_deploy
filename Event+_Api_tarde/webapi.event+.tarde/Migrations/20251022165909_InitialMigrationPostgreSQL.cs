@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace webapi.event_.tarde.Migrations
 {
     /// <inheritdoc />
-    public partial class BD : Migration
+    public partial class InitialMigrationPostgreSQL : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -55,7 +55,7 @@ namespace webapi.event_.tarde.Migrations
                 {
                     IdEvento = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     DataEvento = table.Column<DateTime>(type: "DATE", nullable: false),
-                    NomeEvento = table.Column<string>(type: "VARCHAR(100)", nullable: false),
+                    Nome = table.Column<string>(type: "VARCHAR(100)", nullable: false),
                     Descricao = table.Column<string>(type: "TEXT", nullable: false),
                     IdTipoEvento = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     IdInstituicao = table.Column<Guid>(type: "uniqueidentifier", nullable: false)

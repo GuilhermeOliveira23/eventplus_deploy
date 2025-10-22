@@ -12,15 +12,15 @@ using webapi.event_.tarde.Contexts;
 namespace webapi.event_.tarde.Migrations
 {
     [DbContext(typeof(EventContext))]
-    [Migration("20230921194624_BD_2")]
-    partial class BD_2
+    [Migration("20251022165909_InitialMigrationPostgreSQL")]
+    partial class InitialMigrationPostgreSQL
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.11")
+                .HasAnnotation("ProductVersion", "9.0.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);

@@ -21,7 +21,7 @@ namespace webapi.event_.tarde.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Administrador")]
+        //[Authorize(Roles = "Administrador")]
         public IActionResult Post(Usuario usuario)
         {
 
@@ -39,7 +39,7 @@ namespace webapi.event_.tarde.Controllers
 
         }
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Administrador")]
+        //[Authorize(Roles = "Administrador")]
         public IActionResult Delete(Guid id)
         {
 
@@ -60,7 +60,7 @@ namespace webapi.event_.tarde.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Administrador")]
+        //[Authorize(Roles = "Administrador")]
         public IActionResult Get()
         {
             try

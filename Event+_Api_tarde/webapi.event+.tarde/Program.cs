@@ -5,23 +5,12 @@ using System.Text.RegularExpressions;
 using webapi.event_.tarde.Contexts;
 using webapi.event_.tarde.Interfaces;
 using webapi.event_.tarde.Repositories;
-// não remova, é para testes
-
 
 var builder = WebApplication.CreateBuilder(args);
 
-//DEBUG: mostrar qual connection string foi resolvida
-//string ResolveAndMask(string? cs)
-//{
-//    if (string.IsNullOrEmpty(cs)) return "<null or empty>";
-//    // mascara password=... e pwd=...
-//    var masked = Regex.Replace(cs, "(?i)(password|pwd)\\s*=\\s*([^;]+)", "$1=****", RegexOptions.Compiled);
-//    return masked;
-//}
-
-//var resolvedCs = builder.Configuration.GetConnectionString("EventPlus");
-//Console.WriteLine($"[DEBUG] ConnectionString(EventPlus) = {ResolveAndMask(resolvedCs)}");
-
+// ⭐ NOVO: Configurar porta dinâmica para Railway
+var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
 
 // ======= Serviços =======
 builder.Services.AddControllers();
@@ -50,7 +39,6 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
-    // Adiciona a definição de segurança para JWT Bearer
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         In = ParameterLocation.Header,
@@ -61,7 +49,6 @@ builder.Services.AddSwaggerGen(options =>
         BearerFormat = "JWT",
     });
 
-    // Adiciona o requisito de segurança que aplica a definição acima
     options.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
         {
@@ -78,8 +65,6 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
-
-
 builder.Services.AddScoped<IEventoRepository, EventoRepository>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<ITipoUsuarioRepository, TipoUsuarioRepository>();
@@ -87,69 +72,64 @@ builder.Services.AddScoped<IInstituicaoRepository, InstituicaoRepository>();
 builder.Services.AddScoped<IPresencaEvento, PresencaEventoRepository>();
 builder.Services.AddScoped<IComentarioEvento, ComentarioEventoRepository>();
 builder.Services.AddScoped<ITipoEventoRepository, TipoEventoRepository>();
-// e assim por diante para os outros repositories
 
-// CORS
+// CORS - ⭐ ADICIONE o domínio do Railway depois que for gerado
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactApp",
         policy =>
         {
             policy.WithOrigins(
-                "http://localhost:3000", // desenvolvimento
-                "https://eventplusapi-h9dmetekh6ehbqdc.brazilsouth-01.azurewebsites.net", // produção
+                "http://localhost:3000",
                 "https://eventplus-deploy.vercel.app"
+            // ⭐ Adicione aqui depois: "https://seu-app.up.railway.app"
             )
             .AllowAnyHeader()
             .AllowAnyMethod();
         });
 });
 
-
-// Connection string do Azure SQL (ou do appsettings)
+// ⭐ MODIFICADO: Connection string agora vem do Railway
 var connectionString = builder.Configuration.GetConnectionString("EventPlus");
 
 builder.Services.AddDbContext<EventContext>(options =>
-    options.UseSqlServer(connectionString, sqlOptions =>
+    options.UseNpgsql(connectionString, sqlOptions =>
     {
-        sqlOptions.CommandTimeout(60); // 60 segundos
-         
+        sqlOptions.CommandTimeout(60);
     })
 );
+
 var app = builder.Build();
 
-
-
-
-// Swagger em qualquer ambiente
-// Antes
-if (app.Environment.IsDevelopment())
+//  NOVO: Aplicar migrations automaticamente
+using (var scope = app.Services.CreateScope())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI(c =>
+    try
     {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Minha API V1");
-        c.RoutePrefix = "swagger";
-    });
+        var db = scope.ServiceProvider.GetRequiredService<EventContext>();
+        db.Database.Migrate();
+        Console.WriteLine(" Migrations aplicadas com sucesso!");
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($" Erro ao aplicar migrations: {ex.Message}");
+    }
 }
 
-// Depois (para todos os ambientes)
+// Swagger em todos os ambientes
 app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "Minha API V1");
     c.RoutePrefix = "swagger";
 });
+
 // ======= Middleware =======
 app.UseHttpsRedirection();
-
-// CORS
 app.UseRouting();
 app.UseCors("AllowReactApp");
-
 app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();

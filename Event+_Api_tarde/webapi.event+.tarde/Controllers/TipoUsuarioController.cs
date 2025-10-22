@@ -60,7 +60,7 @@ namespace webapi.event_.tarde.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Administrador")]
+        //[Authorize(Roles = "Administrador")]
         public IActionResult Get()
         {
             try

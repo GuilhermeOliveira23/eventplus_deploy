@@ -14,8 +14,9 @@ namespace webapi.event_.tarde.Domains
         [Required(ErrorMessage ="Descrição obrigatória!")]
         public string? Descricao { get; set; }
 
-        [Column(TypeName = "BIT")]
+        
         [Required(ErrorMessage = "Informação sobre exibição obrigatória!")]
+        [Column(TypeName = "boolean")]
         public bool Exibe { get; set; }
 
 

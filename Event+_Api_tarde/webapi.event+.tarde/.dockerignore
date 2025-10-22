@@ -7,4 +7,3 @@ obj/
 .git/
 .gitignore
 README.md
-Migrations/

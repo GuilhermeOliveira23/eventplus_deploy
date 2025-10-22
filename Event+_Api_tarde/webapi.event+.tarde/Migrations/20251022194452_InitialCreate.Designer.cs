@@ -2,9 +2,9 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using webapi.event_.tarde.Contexts;
 
 #nullable disable
@@ -12,8 +12,8 @@ using webapi.event_.tarde.Contexts;
 namespace webapi.event_.tarde.Migrations
 {
     [DbContext(typeof(EventContext))]
-    [Migration("20251022165909_InitialMigrationPostgreSQL")]
-    partial class InitialMigrationPostgreSQL
+    [Migration("20251022194452_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -21,28 +21,28 @@ namespace webapi.event_.tarde.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "9.0.9")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128);
+                .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+            NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
             modelBuilder.Entity("webapi.event_.tarde.Domains.ComentarioEvento", b =>
                 {
                     b.Property<Guid>("IdComentarioEvento")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Descricao")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("Exibe")
-                        .HasColumnType("BIT");
+                        .HasColumnType("boolean");
 
                     b.Property<Guid>("IdEvento")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uuid");
 
                     b.Property<Guid>("IdUsuario")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uuid");
 
                     b.HasKey("IdComentarioEvento");
 
@@ -57,7 +57,7 @@ namespace webapi.event_.tarde.Migrations
                 {
                     b.Property<Guid>("IdEvento")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uuid");
 
                     b.Property<DateTime>("DataEvento")
                         .HasColumnType("DATE");
@@ -67,10 +67,10 @@ namespace webapi.event_.tarde.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<Guid>("IdInstituicao")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uuid");
 
                     b.Property<Guid>("IdTipoEvento")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Nome")
                         .IsRequired()
@@ -89,7 +89,7 @@ namespace webapi.event_.tarde.Migrations
                 {
                     b.Property<Guid>("IdInstituicao")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uuid");
 
                     b.Property<string>("CNPJ")
                         .IsRequired()
@@ -116,16 +116,16 @@ namespace webapi.event_.tarde.Migrations
                 {
                     b.Property<Guid>("IdPresencaEvento")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uuid");
 
                     b.Property<Guid>("IdEvento")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uuid");
 
                     b.Property<Guid>("IdUsuario")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uuid");
 
                     b.Property<bool>("Situacao")
-                        .HasColumnType("BIT");
+                        .HasColumnType("boolean");
 
                     b.HasKey("IdPresencaEvento");
 
@@ -140,7 +140,7 @@ namespace webapi.event_.tarde.Migrations
                 {
                     b.Property<Guid>("IdTipoEvento")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Titulo")
                         .IsRequired()
@@ -155,7 +155,7 @@ namespace webapi.event_.tarde.Migrations
                 {
                     b.Property<Guid>("IdTipoUsuario")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Titulo")
                         .IsRequired()
@@ -170,14 +170,14 @@ namespace webapi.event_.tarde.Migrations
                 {
                     b.Property<Guid>("IdUsuario")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("VARCHAR(100)");
 
                     b.Property<Guid>("IdTipoUsuario")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Nome")
                         .IsRequired()

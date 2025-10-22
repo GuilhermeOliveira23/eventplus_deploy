@@ -11,7 +11,7 @@ namespace webapi.event_.tarde.Domains
         public Guid IdPresencaEvento { get; set; } = Guid.NewGuid();
 
 
-        [Column(TypeName = "BIT")]
+        [Column(TypeName = "boolean")]
         [Required(ErrorMessage ="Situação obrigatória!")]
         public bool Situacao { get; set; }
 

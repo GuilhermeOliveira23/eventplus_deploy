@@ -3,3 +3,12 @@ node_modules/
 **/appsettings.Development.json
 **/bin
 **/obj
+**/inserir_eventos.py
+**/Dockerfile
+**/.dockerignore
+**/SeedController.cs
+**/Scripts
+**/launchSettings.json
+*.user
+*.suo
+.vs/

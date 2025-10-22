@@ -1,22 +1,22 @@
 
-FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
 
-COPY ["webapi.event_.tarde.csproj", "./"]
-RUN dotnet restore "webapi.event_.tarde.csproj"
+COPY ["webapi.event+.tarde.csproj", "./"]
+RUN dotnet restore "webapi.event+.tarde.csproj"
 
 
 COPY . .
-RUN dotnet build "webapi.event_.tarde.csproj" -c Release -o /app/build
-RUN dotnet publish "webapi.event_.tarde.csproj" -c Release -o /app/publish
+RUN dotnet build "webapi.event+.tarde.csproj" -c Release -o /app/build
+RUN dotnet publish "webapi.event+.tarde.csproj" -c Release -o /app/publish
 
 
-FROM mcr.microsoft.com/dotnet/aspnet:9.0
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 COPY --from=build /app/publish .
 
 EXPOSE 8080
 ENV ASPNETCORE_URLS=http://+:8080
 
-ENTRYPOINT ["dotnet", "webapi.event_.tarde.dll"]
+ENTRYPOINT ["dotnet", "webapi.event+.tarde.dll"]

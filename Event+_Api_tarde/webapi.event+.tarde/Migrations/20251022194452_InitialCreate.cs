@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace webapi.event_.tarde.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialMigrationPostgreSQL : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,7 +15,7 @@ namespace webapi.event_.tarde.Migrations
                 name: "Instituicao",
                 columns: table => new
                 {
-                    IdInstituicao = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    IdInstituicao = table.Column<Guid>(type: "uuid", nullable: false),
                     CNPJ = table.Column<string>(type: "VARCHAR(14)", maxLength: 14, nullable: false),
                     NomeFantasia = table.Column<string>(type: "VARCHAR(100)", nullable: false),
                     Endereco = table.Column<string>(type: "VARCHAR(100)", nullable: false)
@@ -29,7 +29,7 @@ namespace webapi.event_.tarde.Migrations
                 name: "TipoEvento",
                 columns: table => new
                 {
-                    IdTipoEvento = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    IdTipoEvento = table.Column<Guid>(type: "uuid", nullable: false),
                     Titulo = table.Column<string>(type: "VARCHAR(100)", nullable: false)
                 },
                 constraints: table =>
@@ -41,7 +41,7 @@ namespace webapi.event_.tarde.Migrations
                 name: "TipoUsuario",
                 columns: table => new
                 {
-                    IdTipoUsuario = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    IdTipoUsuario = table.Column<Guid>(type: "uuid", nullable: false),
                     Titulo = table.Column<string>(type: "VARCHAR(100)", nullable: false)
                 },
                 constraints: table =>
@@ -53,12 +53,12 @@ namespace webapi.event_.tarde.Migrations
                 name: "Evento",
                 columns: table => new
                 {
-                    IdEvento = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    IdEvento = table.Column<Guid>(type: "uuid", nullable: false),
                     DataEvento = table.Column<DateTime>(type: "DATE", nullable: false),
                     Nome = table.Column<string>(type: "VARCHAR(100)", nullable: false),
                     Descricao = table.Column<string>(type: "TEXT", nullable: false),
-                    IdTipoEvento = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    IdInstituicao = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    IdTipoEvento = table.Column<Guid>(type: "uuid", nullable: false),
+                    IdInstituicao = table.Column<Guid>(type: "uuid", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -81,11 +81,11 @@ namespace webapi.event_.tarde.Migrations
                 name: "Usuario",
                 columns: table => new
                 {
-                    IdUsuario = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    IdUsuario = table.Column<Guid>(type: "uuid", nullable: false),
                     Nome = table.Column<string>(type: "VARCHAR(100)", nullable: false),
                     Email = table.Column<string>(type: "VARCHAR(100)", nullable: false),
                     Senha = table.Column<string>(type: "CHAR(60)", maxLength: 60, nullable: false),
-                    IdTipoUsuario = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    IdTipoUsuario = table.Column<Guid>(type: "uuid", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -102,11 +102,11 @@ namespace webapi.event_.tarde.Migrations
                 name: "ComentarioEvento",
                 columns: table => new
                 {
-                    IdComentarioEvento = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    IdComentarioEvento = table.Column<Guid>(type: "uuid", nullable: false),
                     Descricao = table.Column<string>(type: "TEXT", nullable: false),
-                    Exibe = table.Column<bool>(type: "BIT", nullable: false),
-                    IdUsuario = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    IdEvento = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    Exibe = table.Column<bool>(type: "boolean", nullable: false),
+                    IdUsuario = table.Column<Guid>(type: "uuid", nullable: false),
+                    IdEvento = table.Column<Guid>(type: "uuid", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -129,10 +129,10 @@ namespace webapi.event_.tarde.Migrations
                 name: "PresencaEvento",
                 columns: table => new
                 {
-                    IdPresencaEvento = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Situacao = table.Column<bool>(type: "BIT", nullable: false),
-                    IdUsuario = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    IdEvento = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    IdPresencaEvento = table.Column<Guid>(type: "uuid", nullable: false),
+                    Situacao = table.Column<bool>(type: "boolean", nullable: false),
+                    IdUsuario = table.Column<Guid>(type: "uuid", nullable: false),
+                    IdEvento = table.Column<Guid>(type: "uuid", nullable: false)
                 },
                 constraints: table =>
                 {

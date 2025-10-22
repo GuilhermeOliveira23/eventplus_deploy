@@ -8,7 +8,7 @@ using webapi.event_.tarde.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ⭐ NOVO: Configurar porta dinâmica para Railway
+// NOVO: Configurar porta dinâmica para Railway
 var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
 builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
 
@@ -65,6 +65,7 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
+//Services
 builder.Services.AddScoped<IEventoRepository, EventoRepository>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<ITipoUsuarioRepository, TipoUsuarioRepository>();
@@ -73,7 +74,7 @@ builder.Services.AddScoped<IPresencaEvento, PresencaEventoRepository>();
 builder.Services.AddScoped<IComentarioEvento, ComentarioEventoRepository>();
 builder.Services.AddScoped<ITipoEventoRepository, TipoEventoRepository>();
 
-// CORS - ⭐ ADICIONE o domínio do Railway depois que for gerado
+// CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactApp",
@@ -81,16 +82,38 @@ builder.Services.AddCors(options =>
         {
             policy.WithOrigins(
                 "http://localhost:3000",
-                "https://eventplus-deploy.vercel.app"
-            // ⭐ Adicione aqui depois: "https://seu-app.up.railway.app"
+                "https://eventplus-deploy.vercel.app",
+                "https://eventplus-api-production.up.railway.app"
             )
             .AllowAnyHeader()
             .AllowAnyMethod();
         });
 });
 
-// ⭐ MODIFICADO: Connection string agora vem do Railway
-var connectionString = builder.Configuration.GetConnectionString("EventPlus");
+//  Connection String com suporte para Railway
+var databaseUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
+var databasePublicUrl = Environment.GetEnvironmentVariable("DATABASE_PUBLIC_URL");
+var connectionStringEnv = Environment.GetEnvironmentVariable("ConnectionStrings__EventPlus");
+var connectionStringConfig = builder.Configuration.GetConnectionString("EventPlus");
+
+var connectionString = !string.IsNullOrWhiteSpace(databaseUrl) ? databaseUrl
+                     : !string.IsNullOrWhiteSpace(databasePublicUrl) ? databasePublicUrl
+                     : !string.IsNullOrWhiteSpace(connectionStringEnv) ? connectionStringEnv
+                     : !string.IsNullOrWhiteSpace(connectionStringConfig) ? connectionStringConfig
+                     : null;
+
+if (string.IsNullOrWhiteSpace(connectionString))
+{
+    throw new InvalidOperationException("Connection string não configurada!");
+}
+
+// Converter formato do Railway (postgres:// ou postgresql://) para Npgsql
+if (connectionString.StartsWith("postgres://") || connectionString.StartsWith("postgresql://"))
+{
+    var uri = new Uri(connectionString);
+    var userInfo = uri.UserInfo.Split(':');
+    connectionString = $"Host={uri.Host};Port={uri.Port};Database={uri.AbsolutePath.TrimStart('/')};Username={userInfo[0]};Password={userInfo[1]};SSL Mode=Require;Trust Server Certificate=true";
+}
 
 builder.Services.AddDbContext<EventContext>(options =>
     options.UseNpgsql(connectionString, sqlOptions =>
@@ -101,18 +124,21 @@ builder.Services.AddDbContext<EventContext>(options =>
 
 var app = builder.Build();
 
-//  NOVO: Aplicar migrations automaticamente
+// Aplicar migrations automaticamente
+Console.WriteLine("Iniciando aplicação de migrations...");
 using (var scope = app.Services.CreateScope())
 {
     try
     {
         var db = scope.ServiceProvider.GetRequiredService<EventContext>();
-        db.Database.Migrate();
-        Console.WriteLine(" Migrations aplicadas com sucesso!");
+        
+        Console.WriteLine("Verificando conexão com o banco...");
+        await db.Database.MigrateAsync();
+        Console.WriteLine("Migrations aplicadas com sucesso!");
     }
     catch (Exception ex)
     {
-        Console.WriteLine($" Erro ao aplicar migrations: {ex.Message}");
+        Console.WriteLine($"Erro ao aplicar migrations: {ex.Message}");
     }
 }
 
@@ -120,7 +146,7 @@ using (var scope = app.Services.CreateScope())
 app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
-    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Minha API V1");
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Event+ API V1");
     c.RoutePrefix = "swagger";
 });
 

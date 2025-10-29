@@ -259,18 +259,45 @@ python analise_dados.py
 
 ## 📸 Screenshots
 
-> **Nota**: Para tornar o README ainda mais impactante, seria ideal adicionar screenshots das seguintes telas:
+### 🏠 Landing Page
+![Landing Page](./eventplus/eventpluslanding.png)
+*Página inicial com apresentação da plataforma, cards de visão e seção de contato*
 
-### Sugestões de Imagens para Adicionar:
+---
 
-1. **Landing Page** - Tela inicial com banner
-2. **Tela de Login** - Interface de autenticação
-3. **Dashboard de Eventos** - Lista de eventos disponíveis
-4. **Gerenciamento Admin** - CRUD de eventos
-5. **Documentação Swagger** - Interface da API
-6. **Gráficos Python** - Visualizações de dados geradas
+### 🔐 Tela de Login
+![Tela de Login](./eventplus/LoginPage.png)
+*Interface de autenticação com validação de credenciais*
 
-**Me envie essas screenshots e eu atualizo o README com elas!** 📷
+---
+
+### 👨‍🎓 Painel do Usuário
+![Painel de Eventos - Usuário](./eventplus/paineldeeventosusuario.png)
+*Dashboard para alunos visualizarem eventos disponíveis e gerenciar suas inscrições*
+
+---
+
+### 🎯 Gerenciamento de Eventos (Admin)
+![Cadastro de Eventos](./eventplus/cadastroDeEventosAdmin.png)
+*CRUD completo de eventos com validação de dados e upload de informações*
+
+---
+
+### 🎭 Gerenciamento de Tipos de Eventos (Admin)
+![Cadastro de Tipos de Eventos](./eventplus/cadastroTipoDeEventosAdmin.png)
+*Categorização e organização dos tipos de eventos da instituição*
+
+---
+
+### 📊 Cards e Visão Geral
+![Cards de Eventos e Visão Page](./eventplus/cardsevisaopage.png)
+*Seção de visão e missão da plataforma com design responsivo*
+
+---
+
+### 📚 Documentação da API (Swagger)
+![Swagger API](./eventplus/swagger.png)
+*Interface interativa da API RESTful com todos os endpoints documentados*
 
 ---
 

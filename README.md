@@ -1,36 +1,114 @@
-<div align="center"># EventPlus
+<div align="center">
 
+# 🎉 Event+
 
+### Plataforma Completa de Gerenciamento de Eventos Acadêmicos
 
-# 🎉 Event+ EventPlus é uma plataforma para gerenciamento de eventos que permite criar, editar, buscar e gerenciar inscrições em eventos. Projeto desenvolvido como portfólio para candidatura a vagas de estágio em desenvolvimento full‑stack.
+**EventPlus** é uma plataforma para gerenciamento de eventos que permite criar, editar, buscar e gerenciar inscrições em eventos. Projeto desenvolvido como portfólio para candidatura a vagas de estágio em desenvolvimento full‑stack.
 
+**[📱 Demo ao Vivo](https://eventplus-deploy.vercel.app/)** • **[📚 Documentação API](https://eventplus-api-production.up.railway.app/swagger)**
 
+[![React](https://img.shields.io/badge/React-18.2.0-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)
+[![.NET](https://img.shields.io/badge/.NET-8.0-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)](https://dotnet.microsoft.com/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-336791?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![Railway](https://img.shields.io/badge/Railway-Deployed-0B0D0E?style=for-the-badge&logo=railway&logoColor=white)](https://railway.app/)
 
-### Plataforma Completa de Gerenciamento de Eventos AcadêmicosLink do site já pronto: https://eventplus-deploy.vercel.app/
+</div>
 
+---
 
+## 📋 Sobre o Projeto
 
-[![React](https://img.shields.io/badge/React-18.2.0-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)## Tecnologias
+**Event+** é uma aplicação full-stack robusta para gerenciamento de eventos acadêmicos, permitindo que instituições de ensino organizem, divulguem e monitorem a participação em eventos educacionais. O projeto demonstra proficiência em desenvolvimento web moderno, desde o frontend responsivo até a API RESTful com autenticação JWT e análise de dados com Python.
 
-[![.NET](https://img.shields.io/badge/.NET-8.0-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)](https://dotnet.microsoft.com/)- Frontend: React.js  
+### ✨ Destaques Técnicos
 
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-336791?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)- Backend: ASP.NET Core (C#)  
+- **Arquitetura Full-Stack Completa**: Frontend React + Backend .NET + Banco PostgreSQL
+- **Autenticação e Autorização**: Sistema JWT Bearer com roles (Administrador/Comum)
+- **API RESTful**: Documentada com Swagger/OpenAPI
+- **Deploy em Produção**: Frontend na Vercel, API no Railway
+- **Análise de Dados**: Scripts Python para métricas e visualizações com Pandas/Matplotlib
+- **Segurança**: Senhas criptografadas com BCrypt, CORS configurado, variáveis de ambiente
 
-[![Railway](https://img.shields.io/badge/Railway-Deployed-0B0D0E?style=for-the-badge&logo=railway&logoColor=white)](https://railway.app/)- ORM: Entity Framework Core  
+---
 
-- Banco de dados: SQL Server  
+## 🚀 Funcionalidades
 
-[Demo ao Vivo](https://eventplus-deploy.vercel.app/) • [Documentação API](https://eventplus-api-production.up.railway.app/swagger)- Deploy: Vercel (frontend) / Azure App Service (backend) — ajustar conforme atualização  
+### 👤 Para Usuários Comuns (Alunos)
 
-- Autenticação: JWT  
+- ✅ Autenticação segura com JWT
+- 📅 Visualização de eventos disponíveis
+- 📝 Inscrição e cancelamento de participação
+- 🔔 Acompanhamento de eventos inscritos
+- ✍️ Sistema de comentários nos eventos
 
-</div>- Controle de versão: Git / GitHub
+### 👨‍💼 Para Administradores
 
+- 🎯 CRUD completo de eventos
+- 🏢 Gerenciamento de instituições
+- 🎭 Categorização de tipos de eventos
+- 📊 Dashboard com análises de participação
+- 👥 Gerenciamento de presenças
 
+### 📈 Análise de Dados (Python)
 
----## Principais funcionalidades
+- 📉 Cálculo do Coeficiente de Gini para distribuição de inscrições
+- 📊 Gráficos de eventos por tipo e instituição
+- 📑 Rankings de participação
+- 📧 Relatórios automáticos para monitoramento
 
-- Cadastro, edição e remoção de eventos (CRUD)  
+---
+
+## 🛠️ Stack Tecnológica
+
+### Frontend
+
+```
+React 18.2            → Biblioteca para interfaces interativas
+React Router v6       → Navegação SPA
+Axios                 → Requisições HTTP com interceptors
+Context API           → Gerenciamento de estado de autenticação
+JWT Decode            → Decodificação de tokens
+CSS3                  → Estilização customizada
+```
+
+### Backend
+
+```
+.NET 8.0              → Framework web moderno e performático
+Entity Framework Core → ORM para PostgreSQL
+JWT Bearer            → Autenticação stateless
+BCrypt.Net            → Criptografia de senhas
+Swagger/OpenAPI       → Documentação interativa da API
+Bogus                 → Geração de dados de teste
+```
+
+### Banco de Dados
+
+```
+PostgreSQL 16         → Banco relacional robusto
+Migrations            → Versionamento do schema
+```
+
+### DevOps & Deploy
+
+```
+Railway               → Hospedagem da API
+Vercel                → Hospedagem do frontend
+Git                   → Controle de versão
+```
+
+### Análise de Dados
+
+```
+Python 3.13           → Linguagem para data science
+Pandas                → Manipulação de dados
+Matplotlib            → Visualizações gráficas
+Psycopg2              → Conexão PostgreSQL
+NumPy                 → Computação numérica
+```
+
+---  
 
 ## 📋 Sobre o Projeto- Autenticação de usuários com JWT (login / registro)  
 
